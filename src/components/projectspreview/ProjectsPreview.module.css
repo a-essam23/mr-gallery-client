@@ -1,0 +1,28 @@
+.transparent {
+    background: white;
+    color: black;
+    mix-blend-mode: screen;
+}
+
+.img1 {
+    background: url("https://b.3ddd.ru/media/cache/tuk_model_custom_filter_en/model_images/0000/0000/0143/143295.547ef53f13419.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img2 {
+    background: url("https://cdn.discordapp.com/attachments/800463070170185809/1015168973060452383/302305740_3342624505995439_156571773198245505_n.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img3 {
+    background: url("https://i.pinimg.com/564x/bc/ed/51/bced5199a694b73d2d6eff5b85a758c6.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.img4 {
+    background: url("https://cdn.discordapp.com/attachments/696846401614905387/1015191775402545182/300783348_444738407681279_6713319204818264712_n.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}

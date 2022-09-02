@@ -1,0 +1,16 @@
+{
+    "homepage":
+    {
+    "explore":"EXPLORE",
+    "about":"ABOUT US",
+    "contact":"CONTACT US",
+    "models":"MODELS",
+    "molds":"MOLDS"
+    },
+    "albuminfopage":{
+        "dimensions":"dimensions",
+        "width":"width",
+        "length":"length",
+        "depth":"depth"
+    }
+}
