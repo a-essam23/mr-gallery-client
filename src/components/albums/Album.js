@@ -2,14 +2,12 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 function Album({ data: { image, code }, className }) {
-    const [isVisible, setIsVisible] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
     const { collection } = useParams();
     return (
         <Link
             to={`/collections/${collection}/${code}`}
             className="flex w-full h-full relative transition-all rounded-3xl shadow-xl"
-            onClick={() => setIsVisible(true)}
             onMouseLeave={() => setIsHovering(false)}
             onMouseOver={() => setIsHovering(true)}
         >

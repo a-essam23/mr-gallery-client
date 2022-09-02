@@ -2,7 +2,6 @@ import { ProjectsPreview } from "../../components";
 import Layout from "../../layouts/client/Layout";
 import About from "./About";
 import Contact from "./Contact";
-import GroupsIntro from "./GroupsIntro";
 import Newsreel from "./Newsreel";
 import RandomAlbumsPreview from "./RandomAlbumsPreview";
 
