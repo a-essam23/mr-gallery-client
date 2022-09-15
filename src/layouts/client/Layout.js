@@ -11,11 +11,11 @@ import NavBar from "./NavBar";
 function Layout({ children }) {
     return (
         <ALayout className="main-theme">
-            <div className="absolute mt-2 mr-2 text-xs md:text-sm right-0 z-50 ">
+            <div className="absolute mt-2 mr-2 text-xs md:text-sm right-0 z-10 ">
                 <span>العربيه</span>
                 <span> English</span>
             </div>
-            <AHeader className="h-auto p-0 m-0 flex justify-center main-theme flex-col sticky z-40 top-0 shadow-lg">
+            <AHeader className="h-auto p-0 m-0 flex justify-center main-theme sticky z-40 top-0 shadow-lg">
                 <NavBar />
             </AHeader>
             <Breadcrumb />

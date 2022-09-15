@@ -1,3 +1,4 @@
 import Layout from "./client/Layout";
 import Breadcrumb from "./client/Breadcrumb";
-export { Layout, Breadcrumb };
+import AdminLayout from "./admin/AdminLayout";
+export { AdminLayout, Layout, Breadcrumb };

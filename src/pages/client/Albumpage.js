@@ -1,8 +1,8 @@
 import { AlbumList } from "../../components";
 import { Layout } from "../../layouts";
-import { getAlbums } from "../../services/getAlbums";
+import { getAlbums } from "../../services";
 
-function Albumpage() {
+export default function Albumpage() {
     const albums = getAlbums();
     return (
         <Layout>
@@ -12,5 +12,3 @@ function Albumpage() {
         </Layout>
     );
 }
-
-export default Albumpage;

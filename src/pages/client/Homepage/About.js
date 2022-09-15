@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { PreviewCard } from "../../components";
+import { PreviewCard } from "../../../components";
 const placeholders = [
     "https://cdn.discordapp.com/attachments/800463070170185809/1015171627924860999/54462632_2311144289143471_8524180622678163456_n.jpg",
     "https://cdn.discordapp.com/attachments/800463070170185809/1015171628163944458/302198695_3342009746056915_1111026988747899706_n.jpg",

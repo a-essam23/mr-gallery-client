@@ -1,11 +1,11 @@
-import { ProjectsPreview } from "../../components";
-import Layout from "../../layouts/client/Layout";
+import { ProjectsPreview } from "../../../components";
+import { Layout } from "../../../layouts";
 import About from "./About";
 import Contact from "./Contact";
 import Newsreel from "./Newsreel";
 import RandomAlbumsPreview from "./RandomAlbumsPreview";
 
-function Homepage() {
+export default function Homepage() {
     return (
         <Layout>
             <section className="w-full h-full sm:flex gap-4 sm:h-96 md:h-128 xl:h-144 2xl:h-216">
@@ -22,5 +22,3 @@ function Homepage() {
         </Layout>
     );
 }
-
-export default Homepage;

@@ -1,8 +1,8 @@
 import CollectionMosiac from "../../components/collections/CollectionMosiac";
 import { Layout } from "../../layouts";
-import { getCollections } from "../../services/getCollections";
+import { getCollections } from "../../services";
 
-function Collectionpage() {
+export default function Collectionpage() {
     const collections = getCollections();
     return (
         <Layout>
@@ -11,5 +11,3 @@ function Collectionpage() {
         </Layout>
     );
 }
-
-export default Collectionpage;

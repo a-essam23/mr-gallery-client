@@ -1,4 +1,4 @@
-import { Contactscards } from "../../components";
+import { Contactscards } from "../../../components";
 
 export default function Contact({ className }) {
     return (

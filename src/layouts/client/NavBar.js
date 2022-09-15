@@ -8,7 +8,7 @@ function NavBar() {
         <div className="container flex items-center md:py-1 2xl:py-4 gap-4 justify-between">
             <HashLink
                 to="/"
-                className="flex flex-col w-20 h-auto md:w-24 xl:w-28 2xl:w-32"
+                className="flex flex-col w-20 h-auto md:w-24 xl:w-24"
             >
                 <img src={logo} alt="logo" />
                 <img src={phone} alt="whats" />

@@ -1,7 +1,7 @@
-import { AlbumList } from "../../components";
-import { getAlbums } from "../../services/getAlbums";
+import { AlbumList } from "../../../components";
+import { getAlbums } from "../../../services";
 
-function RandomAlbumsPreview() {
+export default function RandomAlbumsPreview() {
     const albums = getAlbums();
     return (
         <div className="grid gap-4 grid-cols-2 sm:grid-cols-4 ">
@@ -9,5 +9,3 @@ function RandomAlbumsPreview() {
         </div>
     );
 }
-
-export default RandomAlbumsPreview;

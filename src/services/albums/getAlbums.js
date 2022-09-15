@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 
-export function getAlbums() {
+export default function getAlbums() {
     return [
         {
             code: v4(),

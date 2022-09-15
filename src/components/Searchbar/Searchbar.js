@@ -8,7 +8,7 @@ export default function Searchbar({ className }) {
             enterButton="Search"
             size="large"
             loading
-            className={className}
+            className={`p-12 ${className}`}
         />
     );
 }

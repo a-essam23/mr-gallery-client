@@ -7,7 +7,7 @@ module.exports = {
         }
         ,extend: {
             backgroundImage:{
-                'preview-image':"url('https://i.pinimg.com/1200x/19/a5/46/19a54683ed8b78abcd96ebe08c4f4194.jpg')"
+                'preview-image':"url('/src/assets/previewbg.jpg')"
             },
             fontSize:{
                 'xs':['7px','10px']
