@@ -18,7 +18,7 @@ export default function CollectionForm({
             <Form.Item name="folderName" label="Collection name">
                 <Input placeholder="Ex: AA, BB, CA" />
             </Form.Item>
-            <Form.Item name="group" label="Group" initialValue={group}>
+            <Form.Item name="rootFolderName" label="Group" initialValue={group}>
                 <Select>
                     <Select.Option value={group}>
                         {group.toUpperCase()}

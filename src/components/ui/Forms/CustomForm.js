@@ -1,8 +1,10 @@
-import { Button } from "antd";
 import { useEffect } from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import blank from "../../../assets/blank.jpg";
+import AuthContext from "../../../context/AuthProvider";
+import postGroup from "../../../services/groups/postGroup";
 import ButtonsMenu from "../ButtonsMenu";
 import AlbumForm from "./AlbumForm";
 import CollectionForm from "./CollectionForm";
@@ -12,11 +14,12 @@ export default function CustomForm({
     selection = "group",
     selectedCollection,
 }) {
+    const authContext = useContext(AuthContext);
     const location = useParams();
     const [selectedForm, setSelectedForm] = useState(<></>);
     const [fileList, setFileList] = useState([]);
     const [previewImage, setPreviewImage] = useState(blank);
-
+    const [errMsg, setErrMsg] = useState("");
     const onChange = ({ fileList: newFileList }) => {
         setFileList(newFileList);
     };
@@ -29,6 +32,22 @@ export default function CustomForm({
         });
     };
 
+    const handleSubmit = async (
+        body,
+        postFunction,
+        token = authContext.token
+    ) => {
+        await postFunction(body, token)
+            .then(() => {
+                console.log("Successfully created!");
+            })
+            .catch((e) => {
+                setErrMsg(e.message);
+                console.log(errMsg);
+            });
+        return;
+    };
+
     useEffect(() => {
         if (selection == "group") {
             setSelectedForm(
@@ -36,9 +55,12 @@ export default function CustomForm({
                     previewImage={previewImage}
                     onChange={onChange}
                     previewFile={PreviewFile}
-                    onFinish={(data) => {
-                        console.log({ ...data, imageCover: previewImage });
-                    }}
+                    onFinish={(data) =>
+                        handleSubmit(
+                            { ...data, imageCover: previewImage },
+                            postGroup
+                        )
+                    }
                 />
             );
         }
@@ -75,7 +97,7 @@ export default function CustomForm({
                     />
                 </div>
             </div>
-            <div className="basis-3/5 flex-col border-gray-300 ">
+            <div className="basis-3/5 flex-col outline-gray-300 outline-2 outline">
                 <div className="flex flex-1 ">
                     <ButtonsMenu
                         items={["group", "collection", "model"]}
@@ -83,6 +105,7 @@ export default function CustomForm({
                     />
                 </div>
                 {selectedForm}
+                <div className="text-red-500 text-lg px-4 ">{errMsg}</div>
             </div>
         </div>
     );

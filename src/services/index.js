@@ -10,7 +10,10 @@ import getAlbums from "./albums/getAlbums";
 import getOneAlbum from "./albums/getOneAlbum";
 import postAlbum from "./albums/postAlbum";
 
+import loginPost from "./auth/loginPost";
+
 export {
+    loginPost,
     getGroups,
     getOneGroup,
     postGroup,

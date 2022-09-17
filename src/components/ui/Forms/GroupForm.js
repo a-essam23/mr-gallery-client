@@ -11,7 +11,7 @@ export default function GroupForm({
         <Form
             onFinish={onFinish}
             layout="vertical"
-            className="px-4 py-16 border-x-2 border-b-2  border-gray-300"
+            className="px-4 pt-16 border-gray-300"
             size="large"
         >
             <Form.Item name="name" label="Group name">
@@ -27,7 +27,7 @@ export default function GroupForm({
                     previewFile={previewFile}
                 />
             </Form.Item>
-            <Form.Item className="pt-28">
+            <Form.Item className="">
                 <Button type="primary" danger size="large" htmlType="submit">
                     ADD GROUP
                 </Button>
