@@ -5,6 +5,7 @@ import AuthContext from "../../context/AuthProvider";
 export default function RequireAuth({ allowedRoles }) {
     const authContext = useContext(AuthContext);
     const location = useLocation();
+
     return allowedRoles?.includes(authContext?.role) ? (
         <Outlet />
     ) : authContext?.user ? (

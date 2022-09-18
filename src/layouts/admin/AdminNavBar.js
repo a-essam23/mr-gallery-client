@@ -5,15 +5,16 @@ import { Button, Menu } from "antd";
 import { useState } from "react";
 import { getGroups } from "../../services";
 import { useEffect } from "react";
+import CustomForm from "../../components/ui/Forms/CustomForm";
 export default function AdminNavBar() {
     const [items, setItems] = useState([]);
     const [current, setCurrent] = useState("");
+    const [isShown, setIsShown] = useState(false);
     useEffect(() => {
         getGroups().then((data) => {
             setItems(data);
         });
-    }, []);
-
+    }, [isShown]);
     return (
         <div className="container flex md:py-1 2xl:py-4 items-center justify-between ">
             <div className="flex gap-12">
@@ -22,6 +23,7 @@ export default function AdminNavBar() {
                     <img src={phone} alt="whats" />
                 </Link>
                 <Menu
+                    className="grow"
                     theme="light"
                     mode="horizontal"
                     selectedKeys={[current]}
@@ -40,9 +42,22 @@ export default function AdminNavBar() {
                     }))}
                 />
             </div>
-            <Button className="bg-blue-600" type="primary" size="large">
+            <Button
+                className="bg-blue-600"
+                type="primary"
+                size="large"
+                onClick={() => {
+                    setIsShown(true);
+                }}
+            >
                 Add Group
             </Button>
+            {isShown && (
+                <CustomForm
+                    selection="group"
+                    onClickHandler={() => setIsShown(false)}
+                />
+            )}
         </div>
     );
 }

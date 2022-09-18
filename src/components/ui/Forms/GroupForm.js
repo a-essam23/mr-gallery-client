@@ -11,11 +11,11 @@ export default function GroupForm({
         <Form
             onFinish={onFinish}
             layout="vertical"
-            className="px-4 pt-16 border-gray-300"
-            size="large"
+            className="px-4 pt-2 2xl:pt-16 "
+            size="middle"
         >
             <Form.Item name="name" label="Group name">
-                <Input placeholder="Ex: models, projects, molds" />
+                <Input required placeholder="Ex: models, projects, molds" />
             </Form.Item>
             <Form.Item name="description" label="Group description">
                 <Input placeholder="Ex: types of sand molds" />

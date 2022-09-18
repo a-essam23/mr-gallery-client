@@ -12,7 +12,7 @@ export default async function loginPost(data) {
                 return res.json();
             }
 
-            if (res.status == 401) {
+            if (res.status === 401) {
                 throw new Error("Wrong username or password...");
             } else {
                 throw new Error("Something went wrong...");
@@ -22,7 +22,7 @@ export default async function loginPost(data) {
             return { user: result.data.user, token: result.token };
         })
         .catch((e) => {
-            Promise.reject(e.message);
+            throw new Error(e.message);
         });
     return result;
 }

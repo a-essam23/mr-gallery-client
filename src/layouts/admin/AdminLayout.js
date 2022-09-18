@@ -10,7 +10,7 @@ import AdminNavBar from "./AdminNavBar";
 export default function AdminLayout({ children }) {
     return (
         <ALayout className="main-theme">
-            <AHeader className="main-theme h-auto p-0 m-0 flex sticky z-40 top-0 shadow-lg">
+            <AHeader className="main-theme h-auto p-0 m-0 flex sticky z-10 top-0 shadow-lg">
                 <AdminNavBar />
             </AHeader>
             <AContent className="mt-12 pb-72 bg-gray-50 w-11/12 mx-auto">

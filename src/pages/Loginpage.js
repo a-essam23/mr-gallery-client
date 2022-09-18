@@ -28,8 +28,7 @@ const Loginpage = () => {
                 navigate(from, { replace: true });
             })
             .catch((err) => {
-                console.log(err);
-                return setErrMsg(err);
+                return setErrMsg(err.message);
             });
     };
     return (

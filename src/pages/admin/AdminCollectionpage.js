@@ -95,7 +95,6 @@ export default function AdminCollectionpage() {
     // }, []);
     return (
         <AdminLayout>
-            <CustomForm></CustomForm>
             <div className="flex items-center">
                 <Searchbar></Searchbar>
                 <Button type="primary" size="large" className="bg-blue-600">

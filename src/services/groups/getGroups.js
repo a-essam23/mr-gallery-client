@@ -4,7 +4,10 @@ export default async function getGroups() {
             return res.json();
         })
         .then((data) => {
-            return data.data.doc;
+            return data?.data?.doc || [];
+        })
+        .catch((e) => {
+            return e?.message;
         });
 
     return data;

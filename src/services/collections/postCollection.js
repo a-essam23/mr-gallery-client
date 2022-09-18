@@ -1,29 +1,38 @@
-export default async function postCollection(body, token) {
-    await fetch("http://127.0.0.1:5000/api/v1/folders", {
+export default async function postCollection(
+    { folderName, rootFolderName, imageCover },
+    token
+) {
+    var data = new FormData();
+    data.append("folderName", folderName);
+    data.append("rootFolderName", rootFolderName);
+    data.append("imageCover", imageCover);
+    await fetch("http://127.0.0.1:5000/api/v1/folders/", {
         headers: {
             Authorization: `Bearer ${token}`,
             withCredentials: true,
-            "Content-Type": "application/json",
         },
         method: "POST",
-        body: JSON.stringify(body),
+        body: data,
     })
         .then((res) => {
-            console.log(res);
-            if (res.ok) {
-                return res.json();
+            return res.json();
+        })
+        .then((data) => {
+            console.log(data);
+            const error = data.error;
+            if (!error) {
+                return;
             }
-            if (res.status === 409) {
-                throw new Error(res.statusText);
+            if (error.statusCode === 409) {
+                throw new Error(
+                    "Collection name already exists... please choose another"
+                );
             }
-            if (res.status === 401) {
+            if (error.statusCode === 401) {
                 /// DELETE CONTEXT SIGN OUT!
                 throw new Error("Token expired... please log in again..");
             }
-            throw new Error(res.statusText || "Something went wrong...");
-        })
-        .then(() => {
-            return true;
+            throw new Error("Something went wrong...");
         })
         .catch((e) => {
             throw new Error(e.message);

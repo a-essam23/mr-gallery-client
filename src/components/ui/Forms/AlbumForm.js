@@ -12,14 +12,18 @@ export default function AlbumForm({
         <Form
             onFinish={onFinish}
             layout="vertical"
-            className="px-4 py-16"
-            size="large"
+            className="px-4 pt-2 2xl:pt-16 "
+            size="middle"
         >
-            <Form.Item name="imageName" label="Image code">
+            <Form.Item name="code" label="Image code">
                 <Input placeholder="Ex: AA, BB, CA" />
             </Form.Item>
-            <Form.Item name="folder" label="Collection">
-                <Select defaultValue={collection}>
+            <Form.Item
+                name="folderName"
+                label="Collection"
+                initialValue={collection}
+            >
+                <Select>
                     <Select.Option value={collection}>
                         {collection.toUpperCase()}
                     </Select.Option>
@@ -32,7 +36,7 @@ export default function AlbumForm({
                     previewFile={previewFile}
                 />
             </Form.Item>
-            <Form.Item className="pt-12">
+            <Form.Item className="">
                 <Button type="primary" danger size="large" htmlType="submit">
                     ADD IMAGE
                 </Button>

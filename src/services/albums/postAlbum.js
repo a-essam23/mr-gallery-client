@@ -1,3 +1,43 @@
-export default function postAlbum(code) {
+export default async function postAlbum(
+    { code, folderName, imageName },
+    token
+) {
+    // console.log(code, folderName, imageName);
+    var data = new FormData();
+    data.append("code", code);
+    data.append("folderName", folderName);
+    data.append("imageName", imageName);
+    await fetch("http://127.0.0.1:5000/api/v1/image/upload", {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            withCredentials: true,
+        },
+        method: "POST",
+        body: data,
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            console.log(data);
+            const error = data.error;
+            if (!error) {
+                return;
+            }
+            if (error.statusCode === 409) {
+                throw new Error(
+                    "Model code already exists... please choose another"
+                );
+            }
+            if (error.statusCode === 401) {
+                /// DELETE CONTEXT SIGN OUT!
+                throw new Error("Token expired... please log in again..");
+            }
+            throw new Error("Something went wrong...");
+        })
+        .catch((e) => {
+            throw new Error(e.message);
+        });
+
     return;
 }
