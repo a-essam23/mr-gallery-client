@@ -9,13 +9,10 @@ export default async function getOneGroup(groupName) {
         }
     )
         .then((res) => {
-            if (res.ok) {
-                return res.json();
-            }
-            throw new Error("Something went wrong...");
+            return res.json();
         })
         .then((data) => {
-            return data.data.data?.folders || [];
+            return data.data?.data?.folders || [];
         })
         .catch((e) => {
             throw new Error(e.message);

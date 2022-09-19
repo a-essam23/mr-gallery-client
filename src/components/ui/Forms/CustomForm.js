@@ -1,14 +1,9 @@
 import { Spin } from "antd";
-import { useEffect } from "react";
-import { useContext } from "react";
-import { useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-import { v4 } from "uuid";
-import blank from "../../../assets/blank.jpg";
 import AuthContext from "../../../context/AuthProvider";
-import postAlbum from "../../../services/albums/postAlbum";
-import postCollection from "../../../services/collections/postCollection";
-import postGroup from "../../../services/groups/postGroup";
+import { postAlbum, postCollection, postGroup } from "../../../services";
+import AspectMenu from "../AspectMenu";
 import ButtonsMenu from "../ButtonsMenu";
 import AlbumForm from "./AlbumForm";
 import CollectionForm from "./CollectionForm";
@@ -19,6 +14,7 @@ export default function CustomForm({
     selectedCollection,
     onClickHandler,
     className,
+    aspectRatio,
 }) {
     const authContext = useContext(AuthContext);
     const location = useParams();
@@ -62,6 +58,7 @@ export default function CustomForm({
         if (selection === "group") {
             setSelectedForm(
                 <GroupForm
+                    aspectRatio={aspectRatio}
                     previewImage={previewImage}
                     onChange={onChange}
                     previewFile={PreviewFile}
@@ -77,6 +74,7 @@ export default function CustomForm({
         if (selection === "collection") {
             setSelectedForm(
                 <CollectionForm
+                    aspectRatio={aspectRatio}
                     previewImage={previewImage}
                     onChange={onChange}
                     previewFile={PreviewFile}
@@ -128,6 +126,7 @@ export default function CustomForm({
                             className="max-h-full"
                         />
                     </div>
+                    <AspectMenu />
                 </div>
                 <div className="basis-3/5 flex-col outline-gray-300 outline-2 outline">
                     <div className="flex flex-1 ">

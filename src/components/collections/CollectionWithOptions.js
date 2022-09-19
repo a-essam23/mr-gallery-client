@@ -1,9 +1,6 @@
 import { Card } from "antd";
 import { Link } from "react-router-dom";
 import { EditTwoTone, DeleteTwoTone, FileAddTwoTone } from "@ant-design/icons";
-import { useEffect } from "react";
-
-const Meta = Card;
 
 export default function CollectionWithOptions({
     data: { folderName, imageCover, url, images },
@@ -14,11 +11,11 @@ export default function CollectionWithOptions({
     return (
         <Card
             cover={
-                <Link to={folderName}>
+                <Link to={folderName} className="h-full w-full">
                     <img
                         alt={folderName}
                         src={imageCover}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover "
                     />
                 </Link>
             }

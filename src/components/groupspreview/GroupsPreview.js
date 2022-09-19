@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import classes from "./ProjectsPreview.module.css";
-export default function ProjectsPreview({ className }) {
+import classes from "./GroupsPreview.module.css";
+export default function GroupsPreview({ className }) {
     return (
         <div className={"flex flex-1 gap-4 w-full h-full " + className}>
             <div className="flex flex-col gap-4 w-full h-full">
                 <Link
-                    to="/collections"
+                    to={`/collections?group=3dmodels`}
                     className={`${classes.img1} w-full h-full flex-grow basis-2/5 min-h-0 bg-white shadow-cd relative`}
                 >
                     <div
@@ -17,7 +17,7 @@ export default function ProjectsPreview({ className }) {
                     </div>
                 </Link>
                 <Link
-                    to="/collections"
+                    to={`/collections?group=molds`}
                     className={`${classes.img2} w-full h-full flex-grow basis-3/5 min-h-0 bg-white shadow-cd relative`}
                 >
                     <div
@@ -31,7 +31,7 @@ export default function ProjectsPreview({ className }) {
             </div>
             <div className="flex flex-col gap-4 w-full h-full">
                 <Link
-                    to="/collections"
+                    to={`/collections?group=models`}
                     className={`${classes.img3} w-full h-full flex-grow basis-3/5 min-h-0 bg-white shadow-cd relative`}
                 >
                     <div
@@ -43,7 +43,7 @@ export default function ProjectsPreview({ className }) {
                     </div>
                 </Link>
                 <Link
-                    to="/collections"
+                    to={`/collections?group=projects`}
                     className={`${classes.img4} w-full h-full flex-grow basis-2/5 min-h-0 bg-white shadow-cd relative`}
                 >
                     <div

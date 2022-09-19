@@ -6,84 +6,12 @@ import { v4 } from "uuid";
 import {
     CollectionWithOptions,
     CustomForm,
+    EmptyPlaceHolder,
     Grid,
     Searchbar,
 } from "../../components";
 import { AdminLayout } from "../../layouts";
 import { getOneGroup } from "../../services";
-
-// let collections = [
-//     {
-//         images: [],
-//         _id: "631cb0e30da27c9ed079b71f",
-//         folderName: "AB",
-//         imageCover:
-//             "https://i.pinimg.com/564x/16/20/70/1620701dc548351544098080a7711112.jpg",
-//     },
-//     {
-//         images: [],
-//         _id: "631cb1990da27c9ed079b72a",
-//         folderName: "AA",
-//         imageCover:
-//             "https://i.pinimg.com/564x/95/c6/1e/95c61e7f08be9e6a5d73e389ff861748.jpg",
-//     },
-//     {
-//         images: [],
-//         _id: "631cb0e30da27c9ed079b71f",
-//         folderName: "AB",
-//         imageCover:
-//             "https://i.pinimg.com/564x/16/20/70/1620701dc548351544098080a7711112.jpg",
-//     },
-//     {
-//         images: [],
-//         _id: "631cb1990da27c9ed079b72a",
-//         folderName: "AA",
-//         imageCover:
-//             "https://i.pinimg.com/564x/95/c6/1e/95c61e7f08be9e6a5d73e389ff861748.jpg",
-//     },
-//     {
-//         images: [],
-//         _id: "631cb0e30da27c9ed079b71f",
-//         folderName: "AB",
-//         imageCover:
-//             "https://i.pinimg.com/564x/16/20/70/1620701dc548351544098080a7711112.jpg",
-//     },
-//     {
-//         images: [],
-//         _id: "631cb1990da27c9ed079b72a",
-//         folderName: "AA",
-//         imageCover:
-//             "https://i.pinimg.com/564x/95/c6/1e/95c61e7f08be9e6a5d73e389ff861748.jpg",
-//     },
-//     {
-//         images: [],
-//         _id: "631cb0e30da27c9ed079b71f",
-//         folderName: "AB",
-//         imageCover:
-//             "https://i.pinimg.com/564x/16/20/70/1620701dc548351544098080a7711112.jpg",
-//     },
-//     {
-//         images: [],
-//         _id: "631cb1990da27c9ed079b72a",
-//         folderName: "AA",
-//         imageCover:
-//             "https://i.pinimg.com/564x/95/c6/1e/95c61e7f08be9e6a5d73e389ff861748.jpg",
-//     },
-//     {
-//         images: [],
-//         _id: "631cb0e30da27c9ed079b71f",
-//         folderName: "AB",
-//         imageCover:
-//             "https://i.pinimg.com/564x/16/20/70/1620701dc548351544098080a7711112.jpg",
-//     },
-//     {
-//         images: [],
-//         _id: "631cb1990da27c9ed079b72a",
-//         folderName: "AA",
-//         imageCover:
-//             "https://i.pinimg.com/564x/95/c6/1e/95c61e7f08be9e6a5d73e389ff861748.jpg",
-//     },
-// ];
 
 export default function AdminGrouppage() {
     const mylocation = useParams();
@@ -91,11 +19,6 @@ export default function AdminGrouppage() {
     const [collections, setCollections] = useState([]);
     const [modelSelection, setModelSelection] = useState("collection");
     const [collectionSelection, setCollectionSelection] = useState("");
-    // const [collections, setCollections] = useState([])
-    // collections = collections.map((collection) => ({
-    //     ...collection,
-    //     url: collection.folderName,
-    // }));
 
     useEffect(() => {
         getOneGroup(mylocation.group).then((data) => {
@@ -127,6 +50,7 @@ export default function AdminGrouppage() {
                     Add Collection
                 </Button>
             </div>
+            {collections.length === 0 && <EmptyPlaceHolder />}
             <Grid>
                 {collections.map((collection) => (
                     <CollectionWithOptions

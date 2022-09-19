@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Collection({ data: { imageCover, folderName, url } }) {
+function Collection({ data: { folderName, imageCover, url, images } }) {
     const [isHovering, setIsHovering] = useState(false);
 
     return (

@@ -6,6 +6,7 @@ export default function GroupForm({
     onChange,
     previewFile,
     onFinish,
+    aspectRatio,
 }) {
     return (
         <Form
@@ -22,6 +23,7 @@ export default function GroupForm({
             </Form.Item>
             <Form.Item label="Group Image">
                 <CropDragger
+                    aspectRatio={aspectRatio}
                     fileList={fileList}
                     onChange={onChange}
                     previewFile={previewFile}

@@ -9,6 +9,7 @@ export default function CollectionForm({
     onChange,
     previewFile,
     onFinish,
+    aspectRatio,
 }) {
     const location = useParams();
     const [group, setGroup] = useState(location.group);
@@ -34,6 +35,7 @@ export default function CollectionForm({
             </Form.Item>
             <Form.Item label="Collection Image">
                 <CropDragger
+                    aspectRatio={aspectRatio}
                     fileList={fileList}
                     onChange={onChange}
                     previewFile={previewFile}

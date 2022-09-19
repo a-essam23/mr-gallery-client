@@ -17,18 +17,10 @@ function NavBar() {
                 <Link to="/collections">
                     <div className={classes.item}>Explore</div>
                 </Link>
-                <HashLink
-                    to="/#about"
-                    activeClassName="selected"
-                    activeStyle={{ color: "red" }}
-                >
+                <HashLink to="/#about">
                     <div className={classes.item}>About Us</div>
                 </HashLink>
-                <HashLink
-                    to="/#contact"
-                    activeClassName="selected"
-                    activeStyle={{ color: "red" }}
-                >
+                <HashLink to="/#contact">
                     <div className={classes.item}>Contact Us</div>
                 </HashLink>
             </div>

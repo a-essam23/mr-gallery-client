@@ -14,11 +14,10 @@ export default function About({ className }) {
             </section>
             <section className={"h-144 my-20 flex flex-1" + className}>
                 {placeholders.map((image) => (
-                    <div className="w-full h-full">
+                    <div className="w-full h-full" key={v4()}>
                         <img
                             src={image}
                             alt={v4()}
-                            key={v4()}
                             className="object-cover w-full h-full"
                         />
                     </div>
