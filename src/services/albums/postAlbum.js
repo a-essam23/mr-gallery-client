@@ -2,7 +2,6 @@ export default async function postAlbum(
     { code, folderName, imageName },
     token
 ) {
-    // console.log(code, folderName, imageName);
     var data = new FormData();
     data.append("code", code);
     data.append("folderName", folderName);

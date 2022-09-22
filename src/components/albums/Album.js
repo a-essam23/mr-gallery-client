@@ -1,19 +1,17 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
-function Album({ data: { image, code }, className }) {
+function Album({ data: { imageURL, code, folderName }, className }) {
     const [isHovering, setIsHovering] = useState(false);
-    const { collection } = useParams();
     return (
         <Link
-            to={`/collections/${collection}/${code}`}
+            to={`/collections/${folderName}/${code}`}
             className="flex w-full h-full relative transition-all rounded-3xl shadow-xl"
             onMouseLeave={() => setIsHovering(false)}
             onMouseOver={() => setIsHovering(true)}
         >
             <div>
                 <img
-                    src={image}
+                    src={imageURL}
                     alt={code}
                     className={
                         "object-cover w-full h-full hover:brightness-50  rounded-2xl"

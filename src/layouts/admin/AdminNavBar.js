@@ -5,7 +5,7 @@ import { Button, Menu } from "antd";
 import { useState } from "react";
 import { getGroups } from "../../services";
 import { useEffect } from "react";
-import CustomForm from "../../components/ui/Forms/CustomForm";
+import { CustomForm } from "../../components";
 export default function AdminNavBar() {
     const [items, setItems] = useState([]);
     const [current, setCurrent] = useState("");
@@ -34,6 +34,7 @@ export default function AdminNavBar() {
                                 onClick={() => {
                                     setCurrent(item._id);
                                 }}
+                                className="font-bold text-xl"
                             >
                                 {item.name.toUpperCase()}
                             </Link>

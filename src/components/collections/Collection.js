@@ -16,11 +16,12 @@ function Collection({ data: { folderName, imageCover, url, images } }) {
                 alt={folderName}
                 className="object-cover w-full h-full hover:brightness-50 rounded-2xl"
             />
-            {isHovering && (
-                <div className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 pointer-events-none ">
-                    <h3 className="text-white">{folderName}</h3>
-                </div>
-            )}
+
+            <div className="absolute top-0 left-0 pointer-events-none bg-black opacity-75 rounded-2xl p-2 ">
+                <h3 className="text-white text-2xl">
+                    {folderName.toUpperCase()}
+                </h3>
+            </div>
         </Link>
     );
 }

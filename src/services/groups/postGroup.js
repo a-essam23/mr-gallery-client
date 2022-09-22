@@ -2,7 +2,6 @@ export default async function postGroup(
     { name, description, imageCover },
     token
 ) {
-    console.log(name, description, imageCover);
     var data = new FormData();
     data.append("name", name);
     data.append("description", description);

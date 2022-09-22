@@ -5,6 +5,7 @@ import postGroup from "./groups/postGroup";
 import getCollections from "./collections/getCollections";
 import getOneCollection from "./collections/getOneCollection";
 import postCollection from "./collections/postCollection";
+import deleteOneCollection from "./collections/deleteOneCollection";
 
 import getAlbums from "./albums/getAlbums";
 import getOneAlbum from "./albums/getOneAlbum";
@@ -13,6 +14,7 @@ import postAlbum from "./albums/postAlbum";
 import loginPost from "./auth/loginPost";
 
 export {
+    deleteOneCollection,
     loginPost,
     getGroups,
     getOneGroup,

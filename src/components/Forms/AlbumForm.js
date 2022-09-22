@@ -1,21 +1,13 @@
 import { Button, Form, Input, Select } from "antd";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
 import CropDragger from "./CropDragger";
 
-export default function CollectionForm({
+export default function AlbumForm({
     fileList,
     onChange,
     previewFile,
+    collection,
     onFinish,
-    aspectRatio,
 }) {
-    const location = useParams();
-    const [group, setGroup] = useState(location.group);
-    useEffect(() => {
-        setGroup(location.group);
-    });
     return (
         <Form
             onFinish={onFinish}
@@ -23,19 +15,25 @@ export default function CollectionForm({
             className="px-4 pt-2 2xl:pt-16 "
             size="middle"
         >
-            <Form.Item name="folderName" label="Collection name">
-                <Input required placeholder="Ex: AA, BB, CA" />
+            <Form.Item name="code" label="Image code">
+                <Input placeholder="Ex: AA, BB, CA" />
             </Form.Item>
-            <Form.Item name="rootFolderName" label="Group" initialValue={group}>
+            <Form.Item name="size" label="Image dimensions">
+                <Input placeholder="Ex: 24x62" />
+            </Form.Item>
+            <Form.Item
+                name="folderName"
+                label="Collection"
+                initialValue={collection}
+            >
                 <Select>
-                    <Select.Option value={group}>
-                        {group.toUpperCase()}
+                    <Select.Option value={collection}>
+                        {collection.toUpperCase()}
                     </Select.Option>
                 </Select>
             </Form.Item>
-            <Form.Item label="Collection Image">
+            <Form.Item label="Image">
                 <CropDragger
-                    aspectRatio={aspectRatio}
                     fileList={fileList}
                     onChange={onChange}
                     previewFile={previewFile}
@@ -43,7 +41,7 @@ export default function CollectionForm({
             </Form.Item>
             <Form.Item className="">
                 <Button type="primary" danger size="large" htmlType="submit">
-                    ADD COLLECTION
+                    ADD IMAGE
                 </Button>
             </Form.Item>
         </Form>

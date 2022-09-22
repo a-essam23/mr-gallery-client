@@ -11,11 +11,11 @@ export default function CollectionWithOptions({
     return (
         <Card
             cover={
-                <Link to={folderName} className="h-full w-full">
+                <Link to={folderName} className="h-40 xl:h-72">
                     <img
                         alt={folderName}
                         src={imageCover}
-                        className="w-full h-full object-cover "
+                        className="h-full w-full object-fit  "
                     />
                 </Link>
             }
@@ -26,7 +26,7 @@ export default function CollectionWithOptions({
             ]}
         >
             <div className="text-center font-bold"> {folderName}</div>
-            <div className="absolute top-0 left-0 p-2 bg-black opacity-50 ">
+            <div className="absolute top-0 left-0 p-2 bg-black opacity-75 ">
                 <span className="text-white">{images.length}</span>
             </div>
         </Card>

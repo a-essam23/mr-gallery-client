@@ -1,48 +1,57 @@
-import { Button } from "antd";
+import { Button, Spin } from "antd";
+import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { v4 } from "uuid";
 import {
     AlbumWithOptions,
-    CollectionWithOptions,
     CustomForm,
     EmptyPlaceHolder,
     Grid,
-    Searchbar,
 } from "../../components";
+import AuthContext from "../../context/AuthProvider";
 import { AdminLayout } from "../../layouts";
 import { getOneCollection } from "../../services";
+import deleteOneAlbum from "../../services/albums/deleteOneAlbum";
 
-export default function AdminGrouppage() {
+export default function AdminCollectionPage() {
+    const authContext = useContext(AuthContext);
     const mylocation = useParams();
-    const [albums, setAlbums] = useState([]);
     const [isShown, setIsShown] = useState(false);
-    const [collectionSelection, setCollectionSelection] = useState("");
-    // const [collections, setCollections] = useState([])
-    // collections = collections.map((collection) => ({
-    //     ...collection,
-    //     url: collection.folderName,
-    // }));
+    const [isLoading, setIsLoading] = useState(false);
+    const [albums, setAlbums] = useState([]);
+
+    const handleDelete = async (code) => {
+        setIsLoading(true);
+        deleteOneAlbum(code, authContext.token)
+            .then(() => {
+                setIsLoading(false);
+            })
+            .catch(() => {
+                setIsLoading(false);
+            });
+    };
 
     useEffect(() => {
         getOneCollection(mylocation.collection).then((data) => {
             setAlbums(data);
         });
-    }, [mylocation.collection]);
+    }, [mylocation.collection, isShown, isLoading]);
     return (
         <AdminLayout>
             {isShown && (
                 <CustomForm
                     selectedCollection={mylocation.collection}
-                    selection="model"
+                    selection={"model"}
                     onClickHandler={() => {
                         setIsShown(false);
                     }}
                 />
             )}
-            <div className="flex items-center">
-                <Searchbar></Searchbar>
+            <div className="flex items-center justify-between p-4">
+                <div></div>
+                {isLoading && <Spin size="large" className="absolute" />}
                 <Button
                     type="primary"
                     size="large"
@@ -56,13 +65,13 @@ export default function AdminGrouppage() {
             </div>
             {albums.length == 0 && <EmptyPlaceHolder />}
             <Grid>
-                {/* {collections.map((collection) => (
+                {albums.map((album) => (
                     <AlbumWithOptions
                         key={v4()}
-                        data={collection}
-                        onClickDelete={() => {}}
+                        data={album}
+                        onClickDelete={() => handleDelete(album.code)}
                     />
-                ))} */}
+                ))}
             </Grid>
         </AdminLayout>
     );

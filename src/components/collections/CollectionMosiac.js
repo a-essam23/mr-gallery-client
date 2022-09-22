@@ -21,7 +21,7 @@ export default function CollectionMosiac({ collections }) {
             columnWidth={245}
             items={items}
             render={Collection}
-            // onRender={maybeLoadMore}
+            onRender={maybeLoadMore}
         />
     );
 }

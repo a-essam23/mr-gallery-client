@@ -10,7 +10,7 @@ import Contactscards from "./contactscard/Contactscards";
 import GroupsPreview from "./groupspreview/GroupsPreview";
 import Grid from "./ui/Grid";
 import CollectionWithOptions from "./collections/CollectionWithOptions";
-import CustomForm from "./ui/Forms/CustomForm";
+import CustomForm from "./Forms/CustomForm";
 import AlbumInfo from "./albums/AlbumInfo";
 import RequireAuth from "./auth/RequireAuth";
 import LoginForm from "./auth/LoginForm";
