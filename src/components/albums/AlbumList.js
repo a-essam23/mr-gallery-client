@@ -2,6 +2,7 @@ import { v4 } from "uuid";
 import Album from "./Album";
 
 function AlbumList({ albums }) {
+    console.log(albums);
     return (
         <>
             {albums.map((album) => (

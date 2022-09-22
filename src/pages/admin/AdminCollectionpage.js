@@ -38,6 +38,7 @@ export default function AdminCollectionPage() {
             setAlbums(data);
         });
     }, [mylocation.collection, isShown, isLoading]);
+
     return (
         <AdminLayout>
             {isShown && (
@@ -64,7 +65,7 @@ export default function AdminCollectionPage() {
                 </Button>
             </div>
             {albums.length == 0 && <EmptyPlaceHolder />}
-            <Grid>
+            <Grid className="p-4">
                 {albums.map((album) => (
                     <AlbumWithOptions
                         key={v4()}

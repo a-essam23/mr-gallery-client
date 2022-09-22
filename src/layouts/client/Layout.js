@@ -19,7 +19,7 @@ function Layout({ children }) {
                 <NavBar />
             </AHeader>
             <Breadcrumb />
-            <AContent className="container flex flex-col main-theme">
+            <AContent className="container flex flex-col main-theme min-h-screen">
                 {children}
             </AContent>
             <AFooter className="m-0 p-0 mt-16">

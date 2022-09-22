@@ -73,7 +73,7 @@ export default function AdminGrouppage() {
                 </Button>
             </div>
             {collections.length === 0 && <EmptyPlaceHolder />}
-            <Grid>
+            <Grid className="p-4">
                 {collections.map((collection) => (
                     <CollectionWithOptions
                         key={v4()}

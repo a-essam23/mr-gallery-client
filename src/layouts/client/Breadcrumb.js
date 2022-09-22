@@ -11,7 +11,7 @@ function Breadcrumb() {
         if (paths.length < 1) return null;
         const crumbList = paths.map((path, index) => {
             const href = "/" + paths.slice(0, index + 1).join("/");
-            return { path, href };
+            return { path: decodeURI(path), href };
         });
         return (
             <>
