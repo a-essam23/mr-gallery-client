@@ -15,7 +15,7 @@ function Layout({ children }) {
                 <span>العربيه</span>
                 <span> English</span>
             </div>
-            <AHeader className="h-auto p-0 m-0 flex justify-center main-theme sticky z-40 top-0 shadow-lg">
+            <AHeader className="h-auto p-0 m-0 flex justify-center main-theme sticky z-10 top-0 shadow-lg">
                 <NavBar />
             </AHeader>
             <Breadcrumb />

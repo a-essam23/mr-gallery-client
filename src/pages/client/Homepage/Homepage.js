@@ -1,3 +1,4 @@
+import { AnimationOnScroll } from "react-animation-on-scroll";
 import { GroupsPreview } from "../../../components";
 import { Layout } from "../../../layouts";
 import About from "./About";
@@ -12,13 +13,20 @@ export default function Homepage() {
                 <Newsreel />
                 <GroupsPreview className="my-12 h-120 sm:h-full md:my-0" />
             </section>
+
             <hr className="my-8 md:my-10 xl:my-12 2xl:my-20 container" />
             <p className="mb-6 md:mb-10 xl:mb-12 2xl:mb-20 text-base 2xl:text-2xl">
                 LATEST WORKS
             </p>
             <RandomAlbumsPreview />
-            <About />
-            <Contact />
+            <AnimationOnScroll
+                delay="75"
+                animateIn="animate__slideInLeft"
+                animateOnce={true}
+            >
+                <About />
+                <Contact />
+            </AnimationOnScroll>
         </Layout>
     );
 }

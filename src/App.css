@@ -5,9 +5,9 @@ html {
     scroll-behavior: smooth;
 }
 
-p {
+/* p {
     @apply p-1 sm:p-2 xl:p-4;
-}
+} */
 
 body {
     font-family: sans-serif;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-function Album({ data: { imageUrl, code, folderName }, className }) {
+function Album({ data: { imageUrl, code, folderName }, className, onClick }) {
     const [isHovering, setIsHovering] = useState(false);
     return (
         <Link
@@ -8,6 +8,7 @@ function Album({ data: { imageUrl, code, folderName }, className }) {
             className="flex w-full h-full relative transition-all shadow-xl hover:scale-105 "
             onMouseLeave={() => setIsHovering(false)}
             onMouseOver={() => setIsHovering(true)}
+            onClick={onClick}
         >
             <div>
                 <img

@@ -22,10 +22,7 @@ export default function AlbumInfopage() {
     }, []);
     return (
         <Layout>
-            <AlbumInfo
-                className="w-10/12 m-auto h-64 sm:h-88 md:h-128 lg:h-144 xl:h-158 2xl:h-220"
-                data={album}
-            />
+            <AlbumInfo className="w-10/12 m-auto" data={album} />
         </Layout>
     );
 }

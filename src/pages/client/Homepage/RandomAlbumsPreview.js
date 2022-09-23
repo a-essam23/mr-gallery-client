@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { AlbumList } from "../../../components";
-import { getAlbums } from "../../../services";
 
 export default function RandomAlbumsPreview() {
     const [albums, setAlbums] = useState([]);

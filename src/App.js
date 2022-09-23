@@ -1,4 +1,5 @@
 import "antd/dist/antd.min.css";
+import "animate.css/animate.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
     Homepage,
@@ -39,10 +40,10 @@ function App() {
                         path="/collections/:collection"
                         element={<Albumpage />}
                     />
-                    <Route
+                    {/* <Route
                         path="/collections/:collection/:album"
                         element={<AlbumInfopage />}
-                    />
+                    /> */}
                 </Routes>
             </AuthProvider>
         </Router>
