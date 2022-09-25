@@ -1,9 +1,9 @@
-import { Masonry, useInfiniteLoader } from "masonic";
-import { useState } from "react";
+import { Masonry } from "masonic";
+// import { useState } from "react";
 import Collection from "./Collection";
 
 export default function CollectionMosiac({ collections }) {
-    const [items, setItems] = useState(collections);
+    // const [items, setItems] = useState(collections);
     // const maybeLoadMore = useInfiniteLoader(
     //     (startIndex, stopIndex, currentItems) => {
     //         const nextItems = collections.slice(startIndex, stopIndex);
@@ -19,7 +19,7 @@ export default function CollectionMosiac({ collections }) {
         <Masonry
             columnGutter={16}
             columnWidth={245}
-            items={items}
+            items={collections}
             render={Collection}
             // onRender={maybeLoadMore}
         />
