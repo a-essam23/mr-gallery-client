@@ -1,5 +1,5 @@
 export default async function deleteOneAlbum(code, token) {
-    const del = await fetch(`${process.env.SERVERHOST}/api/v1/image/${code}`, {
+    const del = await etch(`${process.env.SERVERHOST}api/v1/image/${code}`, {
         method: "DELETE",
         headers: {
             Authorization: `Bearer ${token}`,
