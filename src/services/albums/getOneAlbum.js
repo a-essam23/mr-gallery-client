@@ -1,5 +1,5 @@
 export default async function getOneAlbum(code) {
-    const data = await fetch(`http://127.0.0.1:5000/api/v1/image/${code}`, {
+    const data = await fetch(`${process.env.SERVERHOST}/api/v1/image/${code}`, {
         method: "GET",
         headers: {
             withCredentials: true,

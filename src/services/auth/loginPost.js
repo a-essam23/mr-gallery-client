@@ -1,5 +1,5 @@
 export default async function loginPost(data) {
-    const result = await fetch("http://127.0.0.1:5000/api/v1/admin/login", {
+    const result = await fetch(`${process.env.SERVERHOST}/api/v1/admin/login`, {
         headers: {
             withCredentials: true,
             "Content-Type": "application/json",

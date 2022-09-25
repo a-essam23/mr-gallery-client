@@ -7,7 +7,7 @@ export default async function postGroup(
     data.append("description", description);
     data.append("imageCover", imageCover);
 
-    await fetch("http://127.0.0.1:5000/api/v1/group", {
+    await fetch(`${process.env.SERVERHOST}/api/v1/group`, {
         headers: {
             Authorization: `Bearer ${token}`,
             withCredentials: true,

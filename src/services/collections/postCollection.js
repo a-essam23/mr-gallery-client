@@ -7,7 +7,7 @@ export default async function postCollection(
     data.append("rootFolderName", rootFolderName);
     data.append("imageCover", imageCover);
 
-    await fetch("http://127.0.0.1:5000/api/v1/folders/", {
+    await fetch(`${process.env.SERVERHOST}/api/v1/folders/`, {
         headers: {
             Authorization: `Bearer ${token}`,
             withCredentials: true,

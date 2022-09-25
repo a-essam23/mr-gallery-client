@@ -1,5 +1,6 @@
 export default function getCollections() {
-    const collections = fetch("http://127.0.0.1:5000/api/v1/folders/")
+    console.log(process.env.SERVER);
+    const collections = fetch(`${process.env.SERVERHOST}/api/v1/folders/`)
         .then((res) => {
             return res.json();
         })
