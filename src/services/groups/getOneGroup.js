@@ -1,6 +1,6 @@
 export default async function getOneGroup(groupName) {
     const data = await fetch(
-        `${process.env.SERVERHOST}/api/v1/group/${groupName}`,
+        `${process.env.REACT_APP_SERVERHOST}/api/v1/group/${groupName}`,
         {
             method: "GET",
             headers: {

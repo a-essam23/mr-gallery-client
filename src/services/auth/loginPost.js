@@ -1,12 +1,15 @@
 export default async function loginPost(data) {
-    const result = await fetch(`${process.env.SERVERHOST}api/v1/admin/login`, {
-        headers: {
-            withCredentials: true,
-            "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify(data),
-    })
+    const result = await fetch(
+        `${process.env.REACT_APP_SERVERHOST}api/v1/admin/login`,
+        {
+            headers: {
+                withCredentials: true,
+                "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify(data),
+        }
+    )
         .then((res) => {
             if (res.ok) {
                 return res.json();

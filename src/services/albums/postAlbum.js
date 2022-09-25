@@ -6,7 +6,7 @@ export default async function postAlbum(
     data.append("code", code);
     data.append("folderName", folderName);
     data.append("imageName", imageName);
-    await fetch(`${process.env.SERVERHOST}api/v1/image/upload`, {
+    await fetch(`${process.env.REACT_APP_SERVERHOST}api/v1/image/upload`, {
         headers: {
             Authorization: `Bearer ${token}`,
             withCredentials: true,
