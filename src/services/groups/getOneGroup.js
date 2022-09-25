@@ -12,6 +12,7 @@ export default async function getOneGroup(groupName) {
             return res.json();
         })
         .then((data) => {
+            console.log(data);
             return data.data?.data?.folders || [];
         })
         .catch((e) => {

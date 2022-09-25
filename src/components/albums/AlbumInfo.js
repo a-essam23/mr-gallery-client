@@ -12,7 +12,7 @@ export default function AlbumInfo({
                 <img
                     src={imageUrl}
                     alt={code}
-                    className="w-full h-auto max-h-full rounded-2xl object:cover"
+                    className="w-full h-full max-h-full rounded-2xl object:cover"
                 />
             </div>
             <div className="flex flex-col md:basis-5/12 flex-grow p-4 shadow-cd rounded-2xl">

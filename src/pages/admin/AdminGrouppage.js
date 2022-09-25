@@ -22,28 +22,40 @@ export default function AdminGrouppage() {
     const [collections, setCollections] = useState([]);
     const [modelSelection, setModelSelection] = useState("collection");
     const [collectionSelection, setCollectionSelection] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
-
+    const [isLoading, setIsLoading] = useState(true);
+    const [msg, setMsg] = useState(null);
     const handleDelete = async (folderName) => {
         setIsLoading(true);
+        setMsg(null);
         deleteOneCollection(folderName, authContext.token)
             .then(() => {
                 setIsLoading(false);
+                setMsg(
+                    <Alert
+                        message="Collection deleted!"
+                        type="success"
+                        showIcon
+                        closable
+                    />
+                );
             })
-            .catch(() => {
-                <Alert
-                    message="Delete failed"
-                    type="error"
-                    showIcon
-                    closable
-                />;
+            .catch((e) => {
                 setIsLoading(false);
+                setMsg(
+                    <Alert
+                        message="Delete failed"
+                        type="error"
+                        showIcon
+                        closable
+                    />
+                );
             });
     };
 
     useEffect(() => {
         getOneGroup(mylocation.group).then((data) => {
             setCollections(data);
+            setIsLoading(false);
         });
     }, [mylocation.group, isShown, isLoading]);
     return (
@@ -57,9 +69,11 @@ export default function AdminGrouppage() {
                     }}
                 />
             )}
-            <div className="flex items-center justify-between p-4">
-                <div></div>
-                {isLoading && <Spin size="large" className="absolute" />}
+            <div className="flex flex-1 items-center justify-between p-4">
+                <div />
+                {msg}
+                {isLoading && <Spin size="large" className="" />}
+
                 <Button
                     type="primary"
                     size="large"
@@ -72,24 +86,27 @@ export default function AdminGrouppage() {
                     Add Collection
                 </Button>
             </div>
-            {collections.length === 0 && <EmptyPlaceHolder />}
-            <Grid className="p-4">
-                {collections.map((collection) => (
-                    <CollectionWithOptions
-                        key={v4()}
-                        data={collection}
-                        onClickAdd={() => {
-                            console.log("model selected");
-                            setModelSelection("model");
-                            setCollectionSelection(collection.folderName);
-                            setIsShown(true);
-                        }}
-                        onClickDelete={() =>
-                            handleDelete(collection.folderName)
-                        }
-                    />
-                ))}
-            </Grid>
+            {collections.length > 0 ? (
+                <Grid className="p-4">
+                    {collections.map((collection) => (
+                        <CollectionWithOptions
+                            key={v4()}
+                            data={collection}
+                            onClickAdd={() => {
+                                setModelSelection("model");
+                                setCollectionSelection(collection.folderName);
+                                setIsShown(true);
+                            }}
+                            onClickDelete={() => {
+                                console.log("deleting");
+                                handleDelete(collection.folderName);
+                            }}
+                        />
+                    ))}
+                </Grid>
+            ) : (
+                !isLoading && <EmptyPlaceHolder />
+            )}
         </AdminLayout>
     );
 }

@@ -1,4 +1,5 @@
 import { CaretRightFilled, CaretLeftFilled } from "@ant-design/icons";
+import { Spin } from "antd";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -35,6 +36,8 @@ export default function Albumpage() {
     }, [location.collection]);
     return (
         <Layout>
+            {" "}
+            {isLoading && <Spin size="large" />}
             {isShown && (
                 <>
                     <div
@@ -46,7 +49,6 @@ export default function Albumpage() {
                     <div></div>
                     <Swiper
                         onSwiper={(swiper) => {
-                            console.log(slideIndex);
                             swiper.slideTo(slideIndex, 0);
                         }}
                         navigation

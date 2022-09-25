@@ -12,7 +12,6 @@ export default function AlbumInfopage() {
     useEffect(() => {
         getOneAlbum(location.album)
             .then((data) => {
-                console.log(data);
                 setIsLoading(false);
                 setAlbum(data);
             })

@@ -19,7 +19,6 @@ export default async function postCollection(
             return res.json();
         })
         .then((data) => {
-            console.log(data);
             const error = data.error;
             if (!error) {
                 return;

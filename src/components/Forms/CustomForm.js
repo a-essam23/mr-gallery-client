@@ -56,7 +56,6 @@ export default function CustomForm({
     };
 
     useEffect(() => {
-        console.log(collectionAR);
         if (selection === "group") {
             setSelectedForm(
                 <GroupForm

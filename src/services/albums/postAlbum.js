@@ -18,7 +18,6 @@ export default async function postAlbum(
             return res.json();
         })
         .then((data) => {
-            console.log(data);
             const error = data.error;
             if (!error) {
                 return;

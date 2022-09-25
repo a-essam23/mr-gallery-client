@@ -10,11 +10,11 @@ export default async function deleteOneCollection(folderName, token) {
         }
     )
         .then((res) => {
-            if (res.ok) res.json();
+            if (res.ok) return;
             throw new Error("Delete failed");
         })
         .then((data) => {
-            return true;
+            return;
         })
         .catch((e) => {
             throw new Error(e.message);
