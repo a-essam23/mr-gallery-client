@@ -1,6 +1,8 @@
 export default function getCollections() {
-    console.log(process.env.SERVER);
-    const collections = fetch(`${process.env.SERVERHOST}/api/v1/folders/`)
+    console.log(process.env.REACT_APP_SERVERHOST);
+    const collections = fetch(
+        `${process.env.REACT_APP_SERVERHOST}/api/v1/folders/`
+    )
         .then((res) => {
             return res.json();
         })
