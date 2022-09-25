@@ -1,19 +1,13 @@
-import { CaretRightFilled, CaretLeftFilled } from "@ant-design/icons";
 import { Spin } from "antd";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Autoplay, Navigation, Pagination, Scrollbar } from "swiper";
+import { Navigation, Pagination } from "swiper";
 import "swiper/css/bundle";
 
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { v4 } from "uuid";
-import {
-    Album,
-    AlbumInfo,
-    AlbumList,
-    EmptyPlaceHolder,
-} from "../../components";
+import { Album, AlbumInfo, EmptyPlaceHolder } from "../../components";
 import { Layout } from "../../layouts";
 import { getOneCollection } from "../../services";
 

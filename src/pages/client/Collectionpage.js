@@ -29,7 +29,7 @@ export default function Collectionpage() {
                   .catch((e) => {
                       setIsLoading(false);
                   });
-    }, []);
+    }, [group]);
     return (
         <Layout>
             {isLoading && <Spin size="large" />}

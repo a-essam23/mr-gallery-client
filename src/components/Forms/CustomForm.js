@@ -3,7 +3,7 @@ import { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import AuthContext from "../../context/AuthProvider";
 import { postAlbum, postCollection, postGroup } from "../../services";
-import AspectMenu from "../ui/AspectMenu";
+
 import ButtonsMenu from "../ui/ButtonsMenu";
 
 import AlbumForm from "./AlbumForm";
@@ -105,6 +105,7 @@ export default function CustomForm({
                 />
             );
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [previewFile, collectionAR]);
 
     return (
@@ -125,7 +126,6 @@ export default function CustomForm({
                             className="max-h-full"
                         />
                     </div>
-                    <AspectMenu />
                 </div>
 
                 <div className="basis-3/5 flex-col outline-gray-300 outline-2 outline">

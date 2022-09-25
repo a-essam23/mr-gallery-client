@@ -1,15 +1,10 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Collection({ data: { folderName, imageCover, url, images } }) {
-    const [isHovering, setIsHovering] = useState(false);
-
     return (
         <Link
             to={url || `/collections/${folderName}`}
             className="flex w-full h-full relative transition-all shadow-md rounded-2xl"
-            onMouseLeave={() => setIsHovering(false)}
-            onMouseOver={() => setIsHovering(true)}
         >
             <img
                 src={imageCover}

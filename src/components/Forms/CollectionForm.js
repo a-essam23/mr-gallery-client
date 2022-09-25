@@ -15,6 +15,7 @@ export default function CollectionForm({
     const [group, setGroup] = useState(location.group);
     useEffect(() => {
         setGroup(location.group);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
         <Form

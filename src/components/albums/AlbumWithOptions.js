@@ -1,6 +1,6 @@
 import { Card } from "antd";
 import { Link } from "react-router-dom";
-import { EditTwoTone, DeleteTwoTone, FileAddTwoTone } from "@ant-design/icons";
+import { EditTwoTone, DeleteTwoTone } from "@ant-design/icons";
 
 export default function AlbumWithOptions({
     data: { imageUrl, code, folderName, size },

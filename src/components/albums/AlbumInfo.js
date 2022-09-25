@@ -1,4 +1,3 @@
-import TextPreviewBox from "../ui/TextPreviewBox";
 export default function AlbumInfo({
     data: { imageUrl, code, folderName, size },
     className,

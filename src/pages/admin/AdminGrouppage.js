@@ -9,7 +9,6 @@ import {
     CustomForm,
     EmptyPlaceHolder,
     Grid,
-    Searchbar,
 } from "../../components";
 import AuthContext from "../../context/AuthProvider";
 import { AdminLayout } from "../../layouts";

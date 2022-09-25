@@ -64,7 +64,7 @@ export default function AdminCollectionPage() {
                     Add Model
                 </Button>
             </div>
-            {albums.length == 0 && <EmptyPlaceHolder />}
+            {albums.length === 0 && <EmptyPlaceHolder />}
             <Grid className="p-4">
                 {albums.map((album) => (
                     <AlbumWithOptions

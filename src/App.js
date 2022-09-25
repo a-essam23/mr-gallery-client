@@ -5,7 +5,6 @@ import {
     Homepage,
     Collectionpage,
     Albumpage,
-    AlbumInfopage,
     AdminHomepage,
     AdminGrouppage,
     AdminCollectionpage,
