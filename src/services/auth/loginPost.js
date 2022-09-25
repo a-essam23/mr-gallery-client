@@ -1,6 +1,6 @@
 export default async function loginPost(data) {
     const result = await fetch(
-        `${process.env.REACT_APP_SERVERHOST}api/v1/admin/login`,
+        `${process.env.REACT_APP_SERVERHOST}/api/v1/admin/login`,
         {
             headers: {
                 withCredentials: true,
