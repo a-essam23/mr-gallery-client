@@ -3,9 +3,6 @@ export default async function getOneCollection(groupName) {
         `${process.env.REACT_APP_SERVERHOST}/api/v1/folders/${groupName}`,
         {
             method: "GET",
-            headers: {
-                withCredentials: true,
-            },
         }
     )
         .then((res) => {

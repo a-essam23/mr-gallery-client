@@ -10,7 +10,6 @@ export default async function postCollection(
     await fetch(`${process.env.REACT_APP_SERVERHOST}/api/v1/folders/`, {
         headers: {
             Authorization: `Bearer ${token}`,
-            withCredentials: true,
         },
         method: "POST",
         body: data,
@@ -19,6 +18,7 @@ export default async function postCollection(
             return res.json();
         })
         .then((data) => {
+            console.log(data);
             const error = data.error;
             if (!error) {
                 return;

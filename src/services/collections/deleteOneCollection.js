@@ -5,7 +5,6 @@ export default async function deleteOneCollection(folderName, token) {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`,
-                withCredentials: true,
             },
         }
     )

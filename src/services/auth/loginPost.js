@@ -3,7 +3,6 @@ export default async function loginPost(data) {
         `${process.env.REACT_APP_SERVERHOST}/api/v1/admin/login`,
         {
             headers: {
-                withCredentials: true,
                 "Content-Type": "application/json",
             },
             method: "POST",

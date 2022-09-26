@@ -3,9 +3,6 @@ export default async function getOneGroup(groupName) {
         `${process.env.REACT_APP_SERVERHOST}/api/v1/group/${groupName}`,
         {
             method: "GET",
-            headers: {
-                withCredentials: true,
-            },
         }
     )
         .then((res) => {

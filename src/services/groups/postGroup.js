@@ -10,7 +10,6 @@ export default async function postGroup(
     await fetch(`${process.env.REACT_APP_SERVERHOST}/api/v1/group`, {
         headers: {
             Authorization: `Bearer ${token}`,
-            withCredentials: true,
         },
         method: "POST",
         body: data,
