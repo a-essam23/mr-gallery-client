@@ -5,3 +5,13 @@
 .main-theme {
     background: white;
 }
+
+.transparent-white {
+    background: white;
+    color: black;
+    mix-blend-mode: screen;
+}
+
+section {
+    @apply mb-4 sm:mb-20 md:mb-20 lg:mb-20 2xl:mb-20;
+}

@@ -6,11 +6,11 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import "./Contactscards.css";
 
-export default function Contactscards() {
+export default function Contactscards({ hrefs = [] }) {
     return (
         <div className="cards">
-            <div className="services ">
-                <div className="content content-1">
+            <div className="services flex-1 gap-4">
+                <div className="content content-1 ">
                     <FontAwesomeIcon icon={faSquareFacebook} size="5x" />
                     <h2>Facebook</h2>
                     <p>
@@ -18,14 +18,14 @@ export default function Contactscards() {
                         to connect with family, friends and businesses
                     </p>
                     <a
-                        href="https://www.facebook.com/www.Warshet.Gebs.Mostafa.Roman/"
+                        href={hrefs[0] || ""}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         CLICK HERE
                     </a>
                 </div>
-                <div className="content content-2">
+                <div className="content content-2 ">
                     <FontAwesomeIcon icon={faWhatsappSquare} size="5x" />
                     <h2>WhatsApp</h2>
                     <p>
@@ -33,14 +33,14 @@ export default function Contactscards() {
                         and share media, including voice messages and video
                     </p>
                     <a
-                        href="https://web.whatsapp.com/"
+                        href={hrefs[1] || ""}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         CLICK HERE
                     </a>
                 </div>
-                <div className="content content-3">
+                <div className="content content-3 ">
                     <FontAwesomeIcon icon={faSquarePinterest} size="5x" />
                     <h2>Pinterest</h2>
                     <p>
@@ -48,7 +48,7 @@ export default function Contactscards() {
                         saving and discovery of information on the internet
                     </p>
                     <a
-                        href="https://www.pinterest.com/mostafaroman"
+                        href={hrefs[2] || ""}
                         target="_blank"
                         rel="noopener noreferrer"
                     >

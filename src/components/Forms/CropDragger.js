@@ -7,10 +7,12 @@ export default function CropDragger({
     fileList,
     onChange,
     previewFile,
+    className,
 }) {
     return (
         <ImgCrop rotate quality={1} modalWidth={720} aspect={aspectRatio}>
             <Dragger
+                className={className}
                 showUploadList={false}
                 maxCount={1}
                 listType="picture-card"

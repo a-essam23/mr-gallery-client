@@ -5,16 +5,16 @@ function Album({ data: { imageUrl, code, folderName }, className, onClick }) {
     return (
         <Link
             to={`/collections/${folderName}/${code}`}
-            className="flex w-full h-full relative transition-all shadow-xl hover:scale-105 "
+            className={`${className} flex w-full h-full relative transition-all shadow-xl hover:scale-105 `}
             onMouseLeave={() => setIsHovering(false)}
             onMouseOver={() => setIsHovering(true)}
             onClick={onClick}
         >
-            <div>
+            <div className="w-full h-full">
                 <img
                     src={imageUrl}
                     alt={code}
-                    className={"object-cover w-full h-full  "}
+                    className={"object-cover w-full h-full"}
                 />
             </div>
             {!isHovering && (

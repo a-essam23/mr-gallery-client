@@ -12,10 +12,10 @@ function Collection({ data: { folderName, imageCover, url, images } }) {
                 className="object-cover w-full h-full hover:brightness-50 rounded-2xl"
             />
 
-            <div className="absolute top-0 left-0 pointer-events-none bg-black opacity-75 rounded-2xl p-2 ">
-                <h3 className="text-white text-2xl">
+            <div className="flex absolute top-0 left-0 pointer-events-none bg-black opacity-75 rounded-2xl p-2 max-w-full">
+                <div className="text-white text-xl overflow-clip ">
                     {folderName.toUpperCase()}
-                </h3>
+                </div>
             </div>
         </Link>
     );

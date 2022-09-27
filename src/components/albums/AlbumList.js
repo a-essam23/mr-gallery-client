@@ -1,14 +1,14 @@
 import { v4 } from "uuid";
 import Album from "./Album";
 
-function AlbumList({ albums, className, onClick }) {
+function AlbumList({ albums, AlbumClassName, onClick }) {
     return (
         <>
             {albums.map((album) => (
                 <Album
                     key={v4()}
                     data={album}
-                    className={className}
+                    className={AlbumClassName}
                     onClick={onClick}
                 />
             ))}

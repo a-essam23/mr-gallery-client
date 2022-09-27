@@ -16,9 +16,20 @@ import RequireAuth from "./auth/RequireAuth";
 import LoginForm from "./auth/LoginForm";
 import EmptyPlaceHolder from "./ui/EmptyPlaceHolder";
 import AlbumWithOptions from "./albums/AlbumWithOptions";
-import AspectMenu from "./ui/AspectMenu";
+import SwiperTemplate from "./ui/SwiperTemplate";
+import RandomAlbumsPreview from "./albums/RandomAlbumsPreview";
+import About from "./misc/About";
+import Contact from "./misc/Contact";
+import FourBoxPattern from "./ui/FourBoxsPattern";
+import UploadWithPreview from "./ui/UploadWithPreview";
+
 export {
-    AspectMenu,
+    UploadWithPreview,
+    FourBoxPattern,
+    Contact,
+    About,
+    RandomAlbumsPreview,
+    SwiperTemplate,
     AlbumWithOptions,
     EmptyPlaceHolder,
     LoginForm,

@@ -1,32 +1,37 @@
-import { AnimationOnScroll } from "react-animation-on-scroll";
-import { GroupsPreview } from "../../../components";
+import {
+    RandomAlbumsPreview,
+    SwiperTemplate,
+    FourBoxPattern,
+    About,
+    Contact,
+} from "../../../components";
 import { Layout } from "../../../layouts";
-import About from "./About";
-import Contact from "./Contact";
-import Newsreel from "./Newsreel";
-import RandomAlbumsPreview from "./RandomAlbumsPreview";
 
 export default function Homepage() {
     return (
         <Layout>
-            <section className="w-full h-full sm:flex gap-4 sm:h-96 md:h-128 xl:h-144 2xl:h-216">
-                <Newsreel />
-                <GroupsPreview className="my-12 h-120 sm:h-full md:my-0" />
+            <section className="w-full h-full gap-4 sm:flex sm:h-96 md:h-120 xl:h-144 2xl:h-216">
+                <SwiperTemplate
+                    showIndex
+                    className="sm:basis-3/5 h-96 sm:h-full w-full shadow-cd"
+                    items={
+                        [
+                            // <UploadWithPreview />,
+                            // <UploadWithPreview loading={true} />,
+                            // <UploadWithPreview />,
+                        ]
+                    }
+                />
+                <FourBoxPattern className="my-12 h-120 sm:h-full sm:my-0 sm:basis-2/5 " />
             </section>
-
-            <hr className="my-8 md:my-10 xl:my-12 2xl:my-20 container" />
-            <p className="mb-6 md:mb-10 xl:mb-12 2xl:mb-20 text-base 2xl:text-2xl">
+            <section className="text-3xl 2xl:text-2xl text-center tracking-widest">
                 LATEST WORKS
-            </p>
-            <RandomAlbumsPreview />
-            <AnimationOnScroll
-                delay="75"
-                animateIn="animate__slideInLeft"
-                animateOnce={true}
-            >
-                <About />
-                <Contact />
-            </AnimationOnScroll>
+            </section>
+            <section>
+                <RandomAlbumsPreview size={16} />
+            </section>
+            <About previewImg={null} />
+            <Contact />
         </Layout>
     );
 }
