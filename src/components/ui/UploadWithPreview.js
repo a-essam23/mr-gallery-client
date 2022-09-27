@@ -1,25 +1,24 @@
-import { InboxOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import testImg from "../../assets/previewbg.jpg";
-import Dragger from "antd/lib/upload/Dragger";
 import CropDragger from "../Forms/CropDragger";
 import { Spin } from "antd";
 import { useEffect } from "react";
 
 export default function UploadWithPreview({ loading }) {
+    // eslint-disable-next-line
     const [msg, setMsg] = useState("");
+    // eslint-disable-next-line
     const [file, setFile] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const PreviewFile = (file) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         setFile(file);
-        console.log(file);
         setMsg("");
     };
     useEffect(() => {
         setIsLoading(loading);
-    }, []);
+    }, [loading]);
     return (
         <div className="relative w-full h-full justify-center items-center flex">
             <div
@@ -32,7 +31,7 @@ export default function UploadWithPreview({ loading }) {
             <div className="absolute w-full h-full">
                 <img
                     src={testImg}
-                    alt="test-image-1"
+                    alt="test-1"
                     className={`min-h-full ${
                         isLoading ? "hidden" : "opacity-40"
                     }`}
