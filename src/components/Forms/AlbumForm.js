@@ -16,10 +16,10 @@ export default function AlbumForm({
             size="middle"
         >
             <Form.Item name="code" label="Image code">
-                <Input placeholder="Ex: AA, BB, CA" />
+                <Input required placeholder="Ex: AA, BB, CA" />
             </Form.Item>
             <Form.Item name="size" label="Image dimensions">
-                <Input placeholder="Ex: 24x62" />
+                <Input required placeholder="Ex: 24x62" />
             </Form.Item>
             <Form.Item
                 name="folderName"

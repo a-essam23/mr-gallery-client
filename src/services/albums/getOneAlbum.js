@@ -12,6 +12,7 @@ export default async function getOneAlbum(code) {
             return res.json();
         })
         .then((data) => {
+            console.log(data);
             return data?.data || {};
         })
         .catch((e) => {

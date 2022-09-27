@@ -9,6 +9,7 @@ export default async function getOneCollection(groupName) {
             return res.json();
         })
         .then((data) => {
+            console.log(data);
             return data?.data.images || [];
         })
         .catch((e) => {

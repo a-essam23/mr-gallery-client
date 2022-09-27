@@ -30,7 +30,6 @@ export default function Albumpage() {
     }, [location.collection]);
     return (
         <Layout>
-            {" "}
             {isLoading && <Spin size="large" />}
             {isShown && (
                 <>
@@ -50,7 +49,7 @@ export default function Albumpage() {
                             clickable: true,
                         }}
                         modules={[Pagination, Navigation]}
-                        className="z-30 fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-11/12 sm:w-8/12 m-auto h-3/6 md:h-4/6 xl:h-5/6 lg:w-8/12 xl:w-7/12 bg-white rounded-3xl"
+                        className="bg-white rounded-3xl  m-auto z-30 fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 max-h-full h-auto w-11/12 sm:w-9/12 md:w-10/12 lg:w-9/12 xl:w-8/12 2xl:w-7/12 "
                     >
                         {albums.map((album) => (
                             <SwiperSlide
