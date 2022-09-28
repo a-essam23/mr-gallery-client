@@ -23,7 +23,7 @@ export default function Collectionpage() {
     ////////////// TODO ::: ADD SEARCH BAR
 
     const handleSearch = async (queryVal, getReq, setIsLoading) => {
-        const collections = await getReq(queryVal)
+        const result = await getReq(queryVal)
             .then((data) => {
                 setIsLoading(false);
                 return data;
@@ -32,15 +32,15 @@ export default function Collectionpage() {
                 setIsLoading(false);
                 return [];
             });
-        return collections;
+        return result;
     };
 
     useEffect(() => {
-        if (group) {
+        if (group && decodeURI(group).length > 0) {
             handleSearch(group, getOneGroup, setIsLoading).then((data) => {
                 setCollections(data);
             });
-        } else if (collection) {
+        } else if (collection && decodeURI(collection).length > 0) {
             handleSearch(
                 collection,
                 searchOneCollection,
@@ -49,7 +49,7 @@ export default function Collectionpage() {
             ).then((data) => {
                 setCollections(data);
             });
-        } else if (model) {
+        } else if (model && decodeURI(model).length > 0) {
             handleSearch(model, getOneAlbum(model), setIsLoading).then(
                 (data) => {
                     setCollections([

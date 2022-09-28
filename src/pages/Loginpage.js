@@ -16,6 +16,7 @@ const Loginpage = () => {
     useEffect(() => {
         setErrMsg("");
     }, []);
+
     const handleSubmit = async (data) => {
         loginPost(data)
             .then((result) => {

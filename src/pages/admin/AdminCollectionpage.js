@@ -20,7 +20,8 @@ export default function AdminCollectionPage() {
     const mylocation = useParams();
     const [isShown, setIsShown] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [albums, setAlbums] = useState([]);
+    const [albums, setAlbums] = useState([]); // eslint-disable-next-line
+    const [isUpdate, setIsUpdate] = useState(false);
 
     const handleDelete = async (code) => {
         setIsLoading(true);

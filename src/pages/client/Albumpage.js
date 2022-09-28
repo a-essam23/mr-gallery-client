@@ -1,35 +1,58 @@
 import { Spin } from "antd";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { Navigation, Pagination } from "swiper";
 import "swiper/css/bundle";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { v4 } from "uuid";
-import { Album, AlbumInfo, EmptyPlaceHolder } from "../../components";
+import {
+    Album,
+    AlbumInfo,
+    EmptyPlaceHolder,
+    Searchbar,
+} from "../../components";
 import { Layout } from "../../layouts";
 import { getOneCollection } from "../../services";
 
 export default function Albumpage() {
     const location = useParams();
+    const [searchParams, setSearchParams] = useSearchParams();
     const [isLoading, setIsLoading] = useState(true);
     const [albums, setAlbums] = useState([]);
     const [isShown, setIsShown] = useState(false);
     const [slideIndex, setSlideIndex] = useState(1);
+    const model = searchParams.get("model");
 
     useEffect(() => {
         getOneCollection(location.collection)
             .then((data) => {
+                console.log("model", model, decodeURI(model));
                 setIsLoading(false);
-                setAlbums(data);
+
+                if (model && decodeURI(model).length > 0) {
+                    const modelData = data.find(
+                        (album) => album.code === model
+                    );
+                    setAlbums([modelData]);
+                } else {
+                    setAlbums(data);
+                }
             })
             .catch((e) => {
                 setIsLoading(false);
-            });
-    }, [location.collection]);
+            }); // eslint-disable-next-line
+    }, [searchParams]);
+
     return (
         <Layout>
+            <Searchbar
+                choices={["model"]}
+                onFinish={(data) => {
+                    setSearchParams({ [data.type]: data.value });
+                }}
+            />
             {isLoading && <Spin size="large" />}
             {isShown && (
                 <>

@@ -16,6 +16,7 @@ export default function CustomForm({
     onClickHandler,
     className,
     aspectRatio,
+    update,
 }) {
     const ARarr = [4 / 5, 3 / 4, 2 / 3, 1 / 1];
     const authContext = useContext(AuthContext);
@@ -116,9 +117,9 @@ export default function CustomForm({
             ></div>
 
             <div
-                className={`bg-white flex gap-2 p-2 h-168 2xl:h-200 w-8/12 m-auto fixed z-20 top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 ${className}`}
+                className={`bg-white flex h-168 2xl:h-200 w-10/12 m-auto fixed z-20 top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 ${className}`}
             >
-                <div className="flex relative basis-2/5 outline-2 outline outline-gray-300 ">
+                <div className="flex relative basis-2/5 outline-2 outline outline-gray-300 p-4">
                     <div className="flex w-full justify-center items-center ">
                         <img
                             src={previewImage}
