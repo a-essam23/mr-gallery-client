@@ -1,10 +1,7 @@
 export default async function getOneGroup(groupName) {
-    const data = await fetch(
-        `${process.env.REACT_APP_SERVERHOST}/api/v1/group/${groupName}`,
-        {
-            method: "GET",
-        }
-    )
+    const data = await fetch(`/api/v1/group/${groupName}`, {
+        method: "GET",
+    })
         .then((res) => {
             console.log(res);
             if (res.ok) return res.json();
