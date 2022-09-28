@@ -1,6 +1,6 @@
 export default async function deleteOneAlbum(code, token) {
     const del = await fetch(
-        `${process.env.REACT_APP_SERVERHOST}/api/v1/image/${code}`,
+        `${process.env.REACT_APP_SERVERHOST || ""}/api/v1/image/${code}`,
         {
             method: "DELETE",
             headers: {

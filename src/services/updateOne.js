@@ -4,7 +4,7 @@ export default async function updateOne(payload, token) {
         data.append(key, value);
     }
 
-    await fetch(`${process.env.REACT_APP_SERVERHOST}/api/v1/group`, {
+    await fetch(`${process.env.REACT_APP_SERVERHOST || ""}/api/v1/group`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },

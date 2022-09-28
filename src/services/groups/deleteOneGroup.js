@@ -1,6 +1,6 @@
 export default async function deleteOneGroup(name, token) {
     const del = await fetch(
-        `${process.env.REACT_APP_SERVERHOST}/api/v1/group/${name}`,
+        `${process.env.REACT_APP_SERVERHOST || ""}/api/v1/group/${name}`,
         {
             method: "DELETE",
             headers: {

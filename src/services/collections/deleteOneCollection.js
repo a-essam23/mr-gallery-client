@@ -1,6 +1,8 @@
 export default async function deleteOneCollection(folderName, token) {
     const del = await fetch(
-        `${process.env.REACT_APP_SERVERHOST}/api/v1/folders/deleteAll/${folderName}`,
+        `${
+            process.env.REACT_APP_SERVERHOST || ""
+        }/api/v1/folders/deleteAll/${folderName}`,
         {
             method: "DELETE",
             headers: {
