@@ -15,6 +15,7 @@ export default function AdminNavBar() {
             setItems(data);
         });
     }, [isShown]);
+
     return (
         <div className="container flex md:py-1 2xl:py-4 items-center justify-between ">
             <div className="flex gap-12">
@@ -22,26 +23,28 @@ export default function AdminNavBar() {
                     <img src={logo} alt="logo" />
                     <img src={phone} alt="whats" />
                 </Link>
-                <Menu
-                    className="grow"
-                    theme="light"
-                    mode="horizontal"
-                    selectedKeys={[current]}
-                    items={items.map((item) => ({
-                        label: (
-                            <Link
-                                to={`/admin/${item.name}`}
-                                onClick={() => {
-                                    setCurrent(item._id);
-                                }}
-                                className="font-bold text-xl"
-                            >
-                                {item.name.toUpperCase()}
-                            </Link>
-                        ),
-                        key: item._id,
-                    }))}
-                />
+                {items.length > 0 && (
+                    <Menu
+                        className="grow"
+                        theme="light"
+                        mode="horizontal"
+                        selectedKeys={[current]}
+                        items={items.map((item) => ({
+                            label: (
+                                <Link
+                                    to={`/admin/${item.name}`}
+                                    onClick={() => {
+                                        setCurrent(item._id);
+                                    }}
+                                    className="font-bold text-xl"
+                                >
+                                    {item.name.toUpperCase()}
+                                </Link>
+                            ),
+                            key: item._id,
+                        }))}
+                    />
+                )}
             </div>
             <Button
                 className="bg-blue-600"

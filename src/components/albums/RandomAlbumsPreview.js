@@ -15,16 +15,18 @@ export default function RandomAlbumsPreview({ collections = [], size }) {
             };
         }
     }
+
     for (let i = 0; i < collections.length; i += 4) {
         collArr.push(collections.slice(i, i + 4));
     }
+
     return (
         <SwiperTemplate
             pagination
             autoplay
             items={collArr.map((coll) => {
                 return (
-                    <div className="grid gap-4 grid-cols-2 md:grid-cols-4 p-4  ">
+                    <div className="grid gap-4 grid-cols-2 md:grid-cols-4 p-4 mb-8 ">
                         <AlbumList
                             AlbumClassName="h-64 sm:h-64 md:h-72 xl:h-96 2xl:h-144"
                             albums={coll}

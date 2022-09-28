@@ -56,7 +56,7 @@ export default function AdminGrouppage() {
             setCollections(data);
             setIsLoading(false);
         });
-    }, [mylocation.group, isShown, isLoading]);
+    }, [mylocation.group, isShown, isLoading, msg]);
     return (
         <AdminLayout>
             {isShown && (

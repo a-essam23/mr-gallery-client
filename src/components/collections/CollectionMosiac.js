@@ -1,22 +1,10 @@
 import { Masonry, useInfiniteLoader } from "masonic";
-import { useEffect } from "react";
 import { useState } from "react";
 import Collection from "./Collection";
 
-export default function CollectionMosiac({ collections }) {
-    const [items, setItems] = useState([]); // eslint-disable-next-line
-    const [isDone, setIsDone] = useState(false);
+export default function CollectionMosiac({ collections, amount = 10 }) {
+    const [items, setItems] = useState([]);
 
-    useEffect(() => {
-        if (collections.length <= 10) {
-            setItems(collections);
-            setIsDone(true);
-        } else {
-            const nextItems = collections.slice(0, 10);
-            setItems(nextItems);
-        } // eslint-disable-next-line
-    }, []);
-    // eslint-disable-next-line
     const maybeLoadMore = useInfiniteLoader(
         (startIndex, stopIndex, currentItems) => {
             try {
@@ -29,18 +17,25 @@ export default function CollectionMosiac({ collections }) {
         },
         {
             isItemLoaded: (index, items) => !!items[index],
-            minimumBatchSize: 10,
-            threshold: 10,
+            minimumBatchSize: amount,
+            threshold: amount,
         }
     );
 
-    return (
+    return collections.length > amount ? (
         <Masonry
             columnGutter={16}
             columnWidth={245}
             items={items}
             render={Collection}
-            // onRender={maybeLoadMore}
+            onRender={maybeLoadMore}
+        />
+    ) : (
+        <Masonry
+            columnGutter={16}
+            items={collections}
+            columnWidth={245}
+            render={Collection}
         />
     );
 }

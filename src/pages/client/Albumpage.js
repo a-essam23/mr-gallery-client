@@ -54,7 +54,7 @@ export default function Albumpage() {
                         {albums.map((album) => (
                             <SwiperSlide
                                 key={album._id}
-                                className="py-6 px-8 xl:py-8 xl:px-16"
+                                className="py-6 px-8 xl:py-8 xl:px-16 m-auto"
                             >
                                 <AlbumInfo
                                     data={album}
