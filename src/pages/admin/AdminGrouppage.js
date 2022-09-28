@@ -52,11 +52,12 @@ export default function AdminGrouppage() {
     };
 
     useEffect(() => {
+        setIsLoading(true);
         getOneGroup(mylocation.group).then((data) => {
             setCollections(data);
             setIsLoading(false);
         });
-    }, [mylocation.group, isShown, isLoading, msg]);
+    }, [mylocation.group, msg]);
     return (
         <AdminLayout>
             {isShown && (

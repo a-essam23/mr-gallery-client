@@ -18,7 +18,7 @@ export default function LoginForm({ onFinish, errMsg = "" }) {
                 className="font-bold"
                 required
             >
-                <Input required />
+                <Input type="password" required />
             </FormItem>
             <div className="text-red-500">{errMsg}</div>
             <Button className="my-4" type="primary" htmlType="submit" danger>

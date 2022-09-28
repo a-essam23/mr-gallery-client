@@ -20,8 +20,9 @@ export default function AdminCollectionPage() {
     const mylocation = useParams();
     const [isShown, setIsShown] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [albums, setAlbums] = useState([]); // eslint-disable-next-line
-    const [isUpdate, setIsUpdate] = useState(false);
+    const [albums, setAlbums] = useState([]);
+    // eslint-disable-next-line
+    const [isUpdate, setIsUpdate] = useState(null);
 
     const handleDelete = async (code) => {
         setIsLoading(true);
@@ -35,22 +36,27 @@ export default function AdminCollectionPage() {
     };
 
     useEffect(() => {
+        setIsLoading(true);
         getOneCollection(mylocation.collection).then((data) => {
+            setIsLoading(false);
             setAlbums(data);
         });
-    }, [mylocation.collection, isShown, isLoading]);
+    }, [mylocation.collection]);
 
     return (
         <AdminLayout>
             {isShown && (
                 <CustomForm
+                    update={isUpdate}
                     selectedCollection={mylocation.collection}
                     selection={"model"}
                     onClickHandler={() => {
                         setIsShown(false);
+                        setIsUpdate(null);
                     }}
                 />
             )}
+
             <div className="flex items-center justify-between p-4">
                 <div></div>
                 {isLoading && <Spin size="large" className="absolute" />}
@@ -65,13 +71,18 @@ export default function AdminCollectionPage() {
                     Add Model
                 </Button>
             </div>
+
             {albums.length === 0 && <EmptyPlaceHolder />}
+
             <Grid className="p-4">
                 {albums.map((album) => (
                     <AlbumWithOptions
                         key={v4()}
                         data={album}
                         onClickDelete={() => handleDelete(album.code)}
+                        onClickEdit={() => {
+                            setIsUpdate(album);
+                        }}
                     />
                 ))}
             </Grid>

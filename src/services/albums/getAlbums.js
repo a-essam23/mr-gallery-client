@@ -1,5 +1,5 @@
 export default function getAlbums() {
-    const albums = fetch(`/api/v1/image/`)
+    const albums = fetch(`${process.env.REACT_APP_SERVERHOST}/api/v1/image/`)
         .then((res) => {
             if (res.ok) return res.json();
             throw new Error("Something went wrong...");

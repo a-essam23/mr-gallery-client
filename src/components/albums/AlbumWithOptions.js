@@ -10,10 +10,7 @@ export default function AlbumWithOptions({
     return (
         <Card
             cover={
-                <Link
-                    to={code}
-                    className="h-full w-full flex justify-center items-center"
-                >
+                <Link to={code} className="h-full w-full ">
                     <img alt={code} src={imageUrl} className="w-full h-full" />
                 </Link>
             }

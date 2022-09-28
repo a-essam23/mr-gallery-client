@@ -7,7 +7,9 @@ export default function AlbumForm({
     previewFile,
     collection,
     onFinish,
+    isUpdate,
 }) {
+    console.log(isUpdate);
     return (
         <Form
             onFinish={onFinish}
@@ -19,7 +21,7 @@ export default function AlbumForm({
                 <Input required placeholder="Ex: AA, BB, CA" />
             </Form.Item>
             <Form.Item name="size" label="Image dimensions">
-                <Input required placeholder="Ex: 24x62" />
+                <Input required placeholder="Ex: 24x62" value={isUpdate} />
             </Form.Item>
             <Form.Item
                 name="folderName"

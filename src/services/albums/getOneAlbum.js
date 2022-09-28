@@ -1,10 +1,13 @@
 export default async function getOneAlbum(code) {
-    const data = await fetch(`/api/v1/image/${code}`, {
-        method: "GET",
-        headers: {
-            withCredentials: true,
-        },
-    })
+    const data = await fetch(
+        `${process.env.REACT_APP_SERVERHOST}/api/v1/image/${code}`,
+        {
+            method: "GET",
+            headers: {
+                withCredentials: true,
+            },
+        }
+    )
         .then((res) => {
             return res.json();
         })

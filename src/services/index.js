@@ -1,6 +1,7 @@
 import getGroups from "./groups/getGroups";
 import getOneGroup from "./groups/getOneGroup";
 import postGroup from "./groups/postGroup";
+import deleteOneGroup from "./groups/deleteOneGroup";
 
 import getCollections from "./collections/getCollections";
 import getOneCollection from "./collections/getOneCollection";
@@ -15,7 +16,11 @@ import searchOneAlbum from "./albums/searchOneAlbum";
 
 import loginPost from "./auth/loginPost";
 
+import updateOne from "./updateOne";
+
 export {
+    deleteOneGroup,
+    updateOne,
     searchOneCollection,
     searchOneAlbum,
     deleteOneCollection,

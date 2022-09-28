@@ -1,7 +1,10 @@
 export default async function getOneCollection(groupName) {
-    const data = await fetch(`/api/v1/folders/${groupName}`, {
-        method: "GET",
-    })
+    const data = await fetch(
+        `${process.env.REACT_APP_SERVERHOST}/api/v1/folders/${groupName}`,
+        {
+            method: "GET",
+        }
+    )
         .then((res) => {
             return res.json();
         })

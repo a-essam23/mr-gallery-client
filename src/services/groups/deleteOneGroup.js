@@ -1,11 +1,10 @@
-export default async function deleteOneAlbum(code, token) {
+export default async function deleteOneGroup(name, token) {
     const del = await fetch(
-        `${process.env.REACT_APP_SERVERHOST}/api/v1/image/${code}`,
+        `${process.env.REACT_APP_SERVERHOST}/api/v1/group/${name}`,
         {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`,
-                withCredentials: true,
             },
         }
     )

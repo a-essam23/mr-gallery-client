@@ -2,7 +2,12 @@ import { Spin } from "antd";
 import { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import AuthContext from "../../context/AuthProvider";
-import { postAlbum, postCollection, postGroup } from "../../services";
+import {
+    postAlbum,
+    postCollection,
+    postGroup,
+    updateOne,
+} from "../../services";
 
 import ButtonsMenu from "../ui/ButtonsMenu";
 
@@ -16,7 +21,7 @@ export default function CustomForm({
     onClickHandler,
     className,
     aspectRatio,
-    update,
+    isUpdate,
 }) {
     const ARarr = [4 / 5, 3 / 4, 2 / 3, 1 / 1];
     const authContext = useContext(AuthContext);
@@ -88,20 +93,29 @@ export default function CustomForm({
             );
         }
         if (selection === "model") {
+            console.log(isUpdate);
             setSelectedForm(
                 <AlbumForm
+                    isUpdate={isUpdate}
                     aspectRatio={3 / 4}
                     collection={selectedCollection}
                     previewImage={previewImage}
                     previewFile={PreviewFile}
                     onFinish={(data) => {
-                        handleSubmit(
-                            {
-                                ...data,
-                                imageName: previewFile,
-                            },
-                            postAlbum
-                        );
+                        isUpdate
+                            ? handleSubmit(
+                                  {
+                                      ...data,
+                                  },
+                                  updateOne
+                              )
+                            : handleSubmit(
+                                  {
+                                      ...data,
+                                      imageName: previewFile,
+                                  },
+                                  postAlbum
+                              );
                     }}
                 />
             );

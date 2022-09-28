@@ -1,7 +1,10 @@
 export default async function searchOneAlbum(code) {
-    const data = await fetch(`/api/v1/image?code=${code}`, {
-        method: "GET",
-    })
+    const data = await fetch(
+        `${process.env.REACT_APP_SERVERHOST}/api/v1/image?code=${code}`,
+        {
+            method: "GET",
+        }
+    )
         .then((res) => {
             return res.json();
         })

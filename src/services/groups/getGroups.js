@@ -1,5 +1,5 @@
 export default async function getGroups() {
-    const data = await fetch(`/api/v1/group`)
+    const data = await fetch(`${process.env.REACT_APP_SERVERHOST}/api/v1/group`)
         .then((res) => {
             return res.json();
         })
@@ -7,7 +7,7 @@ export default async function getGroups() {
             return data?.data?.doc || [];
         })
         .catch((e) => {
-            return e?.message;
+            return [];
         });
 
     return data;
