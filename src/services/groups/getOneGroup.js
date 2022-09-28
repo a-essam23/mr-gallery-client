@@ -6,7 +6,8 @@ export default async function getOneGroup(groupName) {
         }
     )
         .then((res) => {
-            return res.json();
+            console.log(res);
+            if (res.ok) return res.json();
         })
         .then((data) => {
             console.log(data);

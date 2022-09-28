@@ -15,6 +15,7 @@ export default async function postGroup(
         body: data,
     })
         .then((res) => {
+            console.log(res);
             return res.json();
         })
         .then((data) => {
