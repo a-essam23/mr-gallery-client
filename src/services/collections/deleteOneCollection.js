@@ -1,13 +1,10 @@
 export default async function deleteOneCollection(folderName, token) {
-    const del = await fetch(
-        `${process.env.REACT_APP_SERVERHOST}/api/v1/folders//deleteAll/${folderName}`,
-        {
-            method: "DELETE",
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }
-    )
+    const del = await fetch(`/api/v1/folders//deleteAll/${folderName}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    })
         .then((res) => {
             if (res.ok) return;
             throw new Error("Delete failed");

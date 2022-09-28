@@ -1,14 +1,11 @@
 export default async function deleteOneAlbum(code, token) {
-    const del = await fetch(
-        `${process.env.REACT_APP_SERVERHOST}/api/v1/image/${code}`,
-        {
-            method: "DELETE",
-            headers: {
-                Authorization: `Bearer ${token}`,
-                withCredentials: true,
-            },
-        }
-    )
+    const del = await fetch(`/api/v1/image/${code}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${token}`,
+            withCredentials: true,
+        },
+    })
         .then((res) => {
             if (res.ok) return;
             throw new Error("Delete failed");

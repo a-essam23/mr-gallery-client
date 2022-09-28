@@ -1,10 +1,7 @@
 export default async function searchOneCollection(folderName) {
-    const data = await fetch(
-        `${process.env.REACT_APP_SERVERHOST}/api/v1/folders?folderName=${folderName}`,
-        {
-            method: "GET",
-        }
-    )
+    const data = await fetch(`/api/v1/folders?folderName=${folderName}`, {
+        method: "GET",
+    })
         .then((res) => {
             return res.json();
         })

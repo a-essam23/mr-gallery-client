@@ -7,7 +7,7 @@ export default async function postCollection(
     data.append("rootFolderName", rootFolderName);
     data.append("imageCover", imageCover);
 
-    await fetch(`${process.env.REACT_APP_SERVERHOST}/api/v1/folders/`, {
+    await fetch(`/api/v1/folders/`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
