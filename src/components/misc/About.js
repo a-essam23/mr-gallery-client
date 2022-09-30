@@ -7,7 +7,7 @@ export default function About({
     card: { title, description, previewImg },
     imageList = [],
 }) {
-    if (imageList.length == 0)
+    if (imageList.length === 0)
         imageList = [
             placeholder,
             blank,

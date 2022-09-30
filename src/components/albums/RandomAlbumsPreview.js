@@ -16,7 +16,7 @@ export default function RandomAlbumsPreview({ albums = [], size, showCode }) {
                 code: i + 1,
             });
         }
-        if (temp.length == 4) {
+        if (temp.length === 4) {
             albumsArr.push(temp);
             temp = [];
         }
