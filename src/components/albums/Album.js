@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-function Album({ data: { imageUrl, code, folderName }, className, onClick }) {
+function Album({
+    data: { _id, imageUrl, code, folderName },
+    className,
+    onClick,
+    showCode = true,
+}) {
     const [isHovering, setIsHovering] = useState(false);
     return (
         <Link
-            to={`/collections/${folderName}/${code}`}
+            to={`/collections/${folderName}?ref=${_id}`}
             className={`${className} flex w-full h-full relative transition-all shadow-xl hover:scale-105 `}
             onMouseLeave={() => setIsHovering(false)}
             onMouseOver={() => setIsHovering(true)}
@@ -17,7 +22,7 @@ function Album({ data: { imageUrl, code, folderName }, className, onClick }) {
                     className={"object-cover w-full h-full"}
                 />
             </div>
-            {!isHovering && (
+            {!isHovering && showCode && (
                 <div className="absolute top-0 left-0 bg-black opacity-75 p-4 pointer-events-none ">
                     <h3 className="text-white font-bold text-2xl">{code}</h3>
                 </div>

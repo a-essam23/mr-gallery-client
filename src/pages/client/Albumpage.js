@@ -14,7 +14,7 @@ import {
     Searchbar,
 } from "../../components";
 import { Layout } from "../../layouts";
-import { getOneCollection } from "../../services";
+import { getOneAlbum, getOneCollection } from "../../services";
 
 export default function Albumpage() {
     const location = useParams();
@@ -24,26 +24,41 @@ export default function Albumpage() {
     const [isShown, setIsShown] = useState(false);
     const [slideIndex, setSlideIndex] = useState(1);
     const model = searchParams.get("model");
+    const ref = searchParams.get("ref");
 
     useEffect(() => {
-        getOneCollection(location.collection)
-            .then((data) => {
-                console.log("model", model, decodeURI(model));
-                setIsLoading(false);
-
-                if (model && decodeURI(model).length > 0) {
-                    const modelData = data.find(
-                        (album) => album.code === model
-                    );
-                    setAlbums([modelData]);
-                } else {
+        setIsLoading(true);
+        if (model && decodeURI(model).length > 0) {
+            getOneAlbum(model)
+                .then((data) => {
+                    setIsLoading(false);
+                    data?._id ? setAlbums([data]) : setAlbums([]);
+                })
+                .catch(() => {
+                    setIsLoading(false);
+                    setAlbums([]);
+                });
+        } else {
+            getOneCollection(location.collection)
+                .then((data) => {
+                    setIsLoading(false);
                     setAlbums(data);
-                }
-            })
-            .catch((e) => {
-                setIsLoading(false);
-            }); // eslint-disable-next-line
-    }, [searchParams]);
+                    if (ref) {
+                        const albumRef = data.find(
+                            (album) => album._id === ref
+                        );
+                        if (albumRef) {
+                            setIsShown(true);
+                            setSlideIndex(data.indexOf(albumRef));
+                        }
+                    }
+                })
+                .catch((e) => {
+                    setIsLoading(false);
+                    setAlbums([]);
+                });
+        } // eslint-disable-next-line
+    }, [location]);
 
     return (
         <Layout>
@@ -55,7 +70,7 @@ export default function Albumpage() {
             />
             {isLoading && <Spin size="large" />}
             {isShown && (
-                <>
+                <div>
                     <div
                         className="fixed bg-black opacity-50 w-screen h-screen left-0 top-0 cursor-pointer z-20 "
                         onClick={() => {
@@ -86,7 +101,7 @@ export default function Albumpage() {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                </>
+                </div>
             )}
             {albums.length > 0 ? (
                 <section className="xl:pt-8 grid auto-rows-fr grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">

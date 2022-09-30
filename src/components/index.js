@@ -22,9 +22,9 @@ import About from "./misc/About";
 import Contact from "./misc/Contact";
 import FourBoxPattern from "./ui/FourBoxsPattern";
 import UploadWithPreview from "./ui/UploadWithPreview";
-import CollapseMenu from "./misc/CollapseMenu";
+import GroupsMenuWithOptions from "./misc/GroupsMenuWithOptions";
 export {
-    CollapseMenu,
+    GroupsMenuWithOptions,
     UploadWithPreview,
     FourBoxPattern,
     Contact,

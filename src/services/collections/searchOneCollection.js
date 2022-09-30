@@ -11,7 +11,7 @@ export default async function searchOneCollection(folderName) {
             return res.json();
         })
         .then((data) => {
-            return data?.data?.doc || {};
+            return data?.data?.doc || [];
         })
         .catch((e) => {
             throw new Error(e.message);

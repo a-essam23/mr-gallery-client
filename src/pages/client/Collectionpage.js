@@ -41,25 +41,28 @@ export default function Collectionpage() {
                 setCollections(data);
             });
         } else if (collection && decodeURI(collection).length > 0) {
-            handleSearch(
-                collection,
-                searchOneCollection,
-                setIsLoading,
-                setCollections
-            ).then((data) => {
-                setCollections(data);
-            });
-        } else if (model && decodeURI(model).length > 0) {
-            handleSearch(model, getOneAlbum(model), setIsLoading).then(
+            handleSearch(collection, searchOneCollection, setIsLoading).then(
                 (data) => {
-                    setCollections([
-                        {
-                            folderName: data.folderName,
-                            folderCover: data.folderCover,
-                        },
-                    ]);
+                    setCollections(data);
                 }
             );
+        } else if (model && decodeURI(model).length > 0) {
+            handleSearch(model, getOneAlbum, setIsLoading).then((data) => {
+                if (data) {
+                    setCollections(
+                        data?._id
+                            ? [
+                                  {
+                                      folderName: data.folderName,
+                                      folderCover: data.folderCover,
+                                  },
+                              ]
+                            : []
+                    );
+                } else {
+                    setCollections(data);
+                }
+            });
         } else if (!location.search) {
             handleSearch(null, getCollections, setIsLoading).then((data) => {
                 setCollections(data);

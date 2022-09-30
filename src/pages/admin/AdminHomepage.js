@@ -32,7 +32,7 @@ export default function AdminHomepage() {
             <section>
                 <RandomAlbumsPreview size={16} />
             </section>
-            <About />
+            <About card={{}} />
             <Contact />
         </AdminLayout>
     );

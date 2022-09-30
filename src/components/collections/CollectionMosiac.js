@@ -2,7 +2,7 @@ import { Masonry, useInfiniteLoader } from "masonic";
 import { useState } from "react";
 import Collection from "./Collection";
 
-export default function CollectionMosiac({ collections, amount = 10 }) {
+export default function CollectionMosiac({ collections = [], amount = 10 }) {
     const [items, setItems] = useState([]);
 
     const maybeLoadMore = useInfiniteLoader(

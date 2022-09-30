@@ -5,7 +5,7 @@ import {
     Footer as AFooter,
 } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
-import { CollapseMenu } from "../../components";
+import { GroupsMenuWithOptions } from "../../components";
 import Breadcrumb from "../client/Breadcrumb";
 import Footer from "../client/Footer";
 import AdminNavBar from "./AdminNavBar";
@@ -18,17 +18,19 @@ export default function AdminLayout({ children, className = "" }) {
             </AHeader>
             <AContent className="">
                 <Breadcrumb />
-                <ALayout className="flex-row min-h-screen">
+                <ALayout
+                    hasSider
+                    className="w-full min-h-screen h-full max-w-full"
+                >
                     <Sider
                         className="main-theme mr-4 xl:mr-0 "
-                        breakpoint="lg"
-                        onBreakpoint={() => {}}
+                        breakpoint="md"
                         width={225}
                     >
-                        <CollapseMenu />
+                        <GroupsMenuWithOptions />
                     </Sider>
                     <AContent
-                        className={`${className}  bg-white px-2 min-h-screen h-full pb-40`}
+                        className={`${className} xl:mx-6 bg-white  min-h-screen h-full `}
                     >
                         {children}
                     </AContent>

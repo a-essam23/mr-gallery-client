@@ -39,10 +39,6 @@ function App() {
                         path="/collections/:collection"
                         element={<Albumpage />}
                     />
-                    {/* <Route
-                        path="/collections/:collection/:album"
-                        element={<AlbumInfopage />}
-                    /> */}
                 </Routes>
             </AuthProvider>
         </Router>

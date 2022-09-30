@@ -11,7 +11,7 @@ export default function CollectionWithOptions({
     return (
         <Card
             cover={
-                <Link to={folderName} className="h-40 xl:h-72">
+                <Link to={folderName} className="h-48 xl:h-56 2xl:h-72">
                     <img
                         alt={folderName}
                         src={imageCover}

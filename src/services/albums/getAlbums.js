@@ -1,6 +1,6 @@
-export default function getAlbums() {
+export default function getAlbums(query = "") {
     const albums = fetch(
-        `${process.env.REACT_APP_SERVERHOST || ""}/api/v1/image/`
+        `${process.env.REACT_APP_SERVERHOST || ""}/api/v1/image/${query}`
     )
         .then((res) => {
             if (res.ok) return res.json();

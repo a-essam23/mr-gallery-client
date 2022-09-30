@@ -41,7 +41,7 @@ export default function AlbumInfo({
                         {code}
                     </div>
                 </div>
-                <div className="gap-2 sm:gap-4 items-center lg:p-2 xl:p-4 2xl:p-8 flex text-lg sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-3xl font-bold justify-evenly">
+                <div className="gap-2 sm:gap-4 items-center lg:p-2 xl:p-4 2xl:p-8 flex text-lg sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-3xl font-bold justify-center">
                     <TextPreviewBox data="Width">{width || ""}</TextPreviewBox>
                     {height && "  x  "}
                     <TextPreviewBox data="Height">

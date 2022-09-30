@@ -10,7 +10,7 @@ import AuthContext from "../../context/AuthProvider";
 import { deleteOneGroup, getGroups } from "../../services";
 import CustomForm from "../Forms/CustomForm";
 
-export default function CollapseMenu() {
+export default function GroupsMenuWithOptions() {
     const [items, setItems] = useState([]);
     const [current, setCurrent] = useState("");
     const [isShown, setIsShown] = useState(false);

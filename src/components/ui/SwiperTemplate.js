@@ -31,7 +31,7 @@ export default function SwiperTemplate({
         >
             {items.map((item, i) => {
                 return (
-                    <SwiperSlide key={v4()}>
+                    <SwiperSlide key={item._id || v4()}>
                         {item}
                         {showIndex && (
                             <span className="absolute top-0 left-0 p-2 text-xl bg-black text-white">
