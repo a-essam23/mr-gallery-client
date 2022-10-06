@@ -27,12 +27,16 @@ export default function Homepage() {
         require.context(
             "../../../assets/customers",
             false,
-            /\.(png|jpe?g|svg)$/
+            /\.(png|jpe?g|svg|)$/
         )
     );
 
     const sliderImages = importAll(
-        require.context("../../../assets/slider", false, /\.(png|jpe?g|svg)$/)
+        require.context(
+            "../../../assets/slider",
+            false,
+            /\.(png|jpe?g|svg|gif|webp)$/
+        )
     );
 
     useEffect(() => {
@@ -60,14 +64,14 @@ export default function Homepage() {
             <section className="w-full h-full gap-4 sm:flex sm:h-96 md:h-120 xl:h-144 2xl:h-216">
                 <SwiperTemplate
                     autoplay
-                    delay={2000}
+                    delay={5000}
                     className="sm:basis-3/5 h-96 sm:h-full w-full shadow-cd"
                     items={Object.values(sliderImages).map((img) => {
                         return (
                             <img
                                 src={img}
                                 alt="slide1"
-                                className="w-full h-full bg-cover"
+                                className=" w-full object-cover "
                             />
                         );
                     })}
