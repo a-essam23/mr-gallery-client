@@ -82,12 +82,12 @@ export default function Collectionpage() {
             {isLoading && <Spin size="large" />}
             {collections.length > 0 ? (
                 <div className="flex gap-4">
-                    <div className="rounded border-2 text-xl p-8 grid grid-cols-1 justify-center">
+                    <div className="rounded border-2 text-xl p-8 flex flex-col gap-2">
                         {collections.map((coll) => {
                             return (
                                 <Link
                                     to={coll.folderName}
-                                    className="cursor-pointer"
+                                    className="cursor-pointer text-2xl "
                                 >
                                     {coll.folderName}
                                 </Link>
