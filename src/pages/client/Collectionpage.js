@@ -1,5 +1,6 @@
 import { Spin } from "antd";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { EmptyPlaceHolder, Searchbar } from "../../components";
 import CollectionMosiac from "../../components/collections/CollectionMosiac";
@@ -80,7 +81,21 @@ export default function Collectionpage() {
             />
             {isLoading && <Spin size="large" />}
             {collections.length > 0 ? (
-                <CollectionMosiac collections={collections} />
+                <div className="flex gap-4">
+                    <div className="rounded border-2 text-xl p-8 grid grid-cols-1 justify-center">
+                        {collections.map((coll) => {
+                            return (
+                                <Link
+                                    to={coll.folderName}
+                                    className="cursor-pointer"
+                                >
+                                    {coll.folderName}
+                                </Link>
+                            );
+                        })}
+                    </div>
+                    <CollectionMosiac collections={collections} />
+                </div>
             ) : (
                 !isLoading && <EmptyPlaceHolder />
             )}
